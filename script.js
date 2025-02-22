@@ -1,6 +1,33 @@
-// Initialize YouTube Stream (Replace VIDEO_ID with actual live stream ID)
-const youtubeIframe = document.getElementById('youtube-stream');
-youtubeIframe.src = 'https://www.youtube.com/embed/VIDEO_ID?autoplay=1';
+// Video Configuration
+const videoConfig = [
+    {
+        element: 'youtube-stream1',
+        fallback: 'no-video1',
+        videoId: 'VIDEO_ID_1' // Replace with actual ID or null
+    },
+    {
+        element: 'youtube-stream2',
+        fallback: 'no-video2',
+        videoId: 'VIDEO_ID_2' // Replace with actual ID or null
+    }
+];
+
+// Initialize Videos
+function initializeVideos() {
+    videoConfig.forEach(config => {
+        const player = document.getElementById(config.element);
+        const fallback = document.getElementById(config.fallback);
+        
+        if (config.videoId) {
+            player.src = `https://www.youtube.com/embed/${config.videoId}?autoplay=1`;
+            player.style.display = 'block';
+            fallback.style.display = 'none';
+        } else {
+            player.style.display = 'none';
+            fallback.style.display = 'block';
+        }
+    });
+}
 
 // Slideshow Functionality
 let slideIndex = 0;
@@ -43,7 +70,24 @@ function launchApp(app) {
     }
 }
 
-// iPad-specific viewport fix
-window.addEventListener('orientationchange', () => {
-    window.scrollTo(0, 0);
-});
+// Video Controls
+function pauseAllVideos() {
+    videoConfig.forEach(config => {
+        const player = document.getElementById(config.element);
+        if (player.contentWindow) {
+            player.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+    });
+}
+
+function playAllVideos() {
+    videoConfig.forEach(config => {
+        const player = document.getElementById(config.element);
+        if (player.contentWindow) {
+            player.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
+    });
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initializeVideos);

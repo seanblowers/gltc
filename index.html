@@ -11,24 +11,38 @@
     <!-- Main Views -->
     <div id="home-view" class="view active">
         <div class="slideshow-container">
-            <img src="images/photo1.jpg" class="slide active">
-            <img src="images/photo2.jpg" class="slide">
-            <img src="images/photo3.jpg" class="slide">
+            <img src="images/photo1.jpg" class="slide active" alt="Family Photo 1">
+            <img src="images/photo2.jpg" class="slide" alt="Family Photo 2">
+            <img src="images/photo3.jpg" class="slide" alt="Family Photo 3">
         </div>
     </div>
 
     <div id="stream-view" class="view">
         <div class="video-container">
-            <iframe id="youtube-stream" 
+            <iframe id="youtube-stream1" 
                     frameborder="0" 
                     allow="autoplay; encrypted-media" 
                     allowfullscreen></iframe>
+            <div id="no-video1" class="no-video-message">
+                <i class="fas fa-video-slash"></i>
+                <p>Sermon not available</p>
+            </div>
+        </div>
+        
+        <div class="video-container">
+            <iframe id="youtube-stream2" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen></iframe>
+            <div id="no-video2" class="no-video-message">
+                <i class="fas fa-video-slash"></i>
+                <p>Sermon not available</p>
+            </div>
         </div>
     </div>
 
     <div id="apps-view" class="view">
         <div class="apps-grid">
-            <!-- Add more apps as needed -->
             <div class="app-icon" onclick="launchApp('calendar')">
                 <i class="fas fa-calendar-day"></i>
                 <span>Calendar</span>
@@ -46,14 +60,20 @@
 
     <!-- Navigation Dock -->
     <div class="nav-dock">
-        <button class="nav-btn active" onclick="showView('home-view')">
+        <button class="nav-btn active" onclick="showView('home-view')" aria-label="Home">
             <i class="fas fa-home"></i>
         </button>
-        <button class="nav-btn" onclick="showView('stream-view')">
+        <button class="nav-btn" onclick="showView('stream-view')" aria-label="Church Stream">
             <i class="fas fa-church"></i>
         </button>
-        <button class="nav-btn" onclick="showView('apps-view')">
+        <button class="nav-btn" onclick="showView('apps-view')" aria-label="Apps">
             <i class="fas fa-th-large"></i>
+        </button>
+        <button class="nav-btn" onclick="pauseAllVideos()" aria-label="Pause Videos">
+            <i class="fas fa-pause"></i>
+        </button>
+        <button class="nav-btn" onclick="playAllVideos()" aria-label="Play Videos">
+            <i class="fas fa-play"></i>
         </button>
     </div>
 
