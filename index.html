@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <!-- Church Stream Views -->
+    <!-- Modern Church View -->
     <div id="modern-view" class="view church-view">
         <div class="video-container">
             <iframe id="youtube-stream-modern" 
@@ -28,12 +28,16 @@
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
             </div>
+            <button class="fullscreen-btn" onclick="toggleFullscreen()">
+                <i class="fas fa-expand"></i>
+            </button>
         </div>
         <button class="reload-btn" onclick="reloadVideo('modern')">
             <i class="fas fa-sync-alt"></i> Reload
         </button>
     </div>
 
+    <!-- Traditional Church View -->
     <div id="traditional-view" class="view church-view">
         <div class="video-container">
             <iframe id="youtube-stream-traditional" 
@@ -44,12 +48,16 @@
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
             </div>
+            <button class="fullscreen-btn" onclick="toggleFullscreen()">
+                <i class="fas fa-expand"></i>
+            </button>
         </div>
         <button class="reload-btn" onclick="reloadVideo('traditional')">
             <i class="fas fa-sync-alt"></i> Reload
         </button>
     </div>
 
+    <!-- Apps View -->
     <div id="apps-view" class="view">
         <div class="apps-grid">
             <div class="app-icon" onclick="launchApp('calendar')">

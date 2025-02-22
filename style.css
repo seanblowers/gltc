@@ -15,8 +15,7 @@ body {
 /* Views */
 .view {
     display: none;
-    height: calc(100vh - 100px);
-    padding: 20px;
+    height: calc(100vh - 100px); /* Adjust for nav dock height */
 }
 
 .view.active {
@@ -42,17 +41,29 @@ body {
     opacity: 1;
 }
 
-/* Video Containers */
+/* Video Container */
 .video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: #000;
-    border-radius: 20px;
+    overflow: hidden;
 }
 
+/* YouTube iframe */
+#youtube-stream-modern,
+#youtube-stream-traditional {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* No Video Message */
 .no-video-message {
     position: absolute;
     top: 50%;
@@ -75,11 +86,14 @@ body {
 
 /* Reload Button */
 .reload-btn {
-    display: block;
-    margin: 20px auto;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
     padding: 15px 30px;
     font-size: 18px;
-    background: #2c2c2e;
+    background: rgba(44, 44, 46, 0.8);
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -88,7 +102,26 @@ body {
 }
 
 .reload-btn:hover {
-    background: #3c3c3e;
+    background: rgba(44, 44, 46, 1);
+}
+
+/* Fullscreen Button */
+.fullscreen-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    padding: 10px;
+    background: rgba(44, 44, 46, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.fullscreen-btn:hover {
+    background: rgba(44, 44, 46, 1);
 }
 
 /* Apps Grid */
@@ -98,6 +131,7 @@ body {
     gap: 30px;
     max-width: 800px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .app-icon {
