@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- Modern Worship View -->
-    <div id="modern-view" class="view church-view active">
+    <div id="modern-view" class="view church-view">
         <div class="video-container">
             <iframe id="youtube-stream-modern" 
                     frameborder="0" 
@@ -48,15 +48,17 @@
         </button>
     </div>
 
-    <!-- App Grid -->
-    <div id="app-grid" class="app-grid">
-        <div class="app-icon" onclick="showView('modern-view')">
-            <i class="fas fa-guitar"></i>
-            <span>Modern Worship</span>
-        </div>
-        <div class="app-icon" onclick="showView('traditional-view')">
-            <i class="fas fa-church"></i>
-            <span>Traditional Worship</span>
+    <!-- Home Page (Bottom Bar) -->
+    <div id="home-view" class="view active">
+        <div class="app-grid">
+            <div class="app-icon" onclick="showView('modern-view')">
+                <i class="fas fa-guitar"></i>
+                <span>Modern Worship</span>
+            </div>
+            <div class="app-icon" onclick="showView('traditional-view')">
+                <i class="fas fa-church"></i>
+                <span>Traditional Worship</span>
+            </div>
         </div>
     </div>
 
