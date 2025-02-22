@@ -5,32 +5,51 @@ fetch('config.json')
     .then(response => response.json())
     .then(data => {
         config = data;
-        initializeVideos();
+        initializeApp();
     })
     .catch(error => console.error('Error loading config:', error));
 
-// Initialize Videos
-function initializeVideos() {
-    const modernPlayer = document.getElementById('youtube-stream-modern');
-    const traditionalPlayer = document.getElementById('youtube-stream-traditional');
+// Initialize App
+function initializeApp() {
+    // Generate home page buttons
+    const homeGrid = document.querySelector('.home-grid');
+    config.items.forEach(item => {
+        const button = document.createElement('div');
+        button.className = 'home-button';
+        button.onclick = () => showView(item.id);
+        button.innerHTML = `
+            <i class="fas ${item.icon}"></i>
+            <span>${item.name}</span>
+        `;
+        homeGrid.appendChild(button);
+    });
 
-    if (config.modern.videoId) {
-        modernPlayer.src = `https://www.youtube.com/embed/${config.modern.videoId}?autoplay=1`;
-        modernPlayer.style.display = 'block';
-        document.getElementById('no-video-modern').style.display = 'none';
-    } else {
-        modernPlayer.style.display = 'none';
-        document.getElementById('no-video-modern').style.display = 'block';
-    }
-
-    if (config.traditional.videoId) {
-        traditionalPlayer.src = `https://www.youtube.com/embed/${config.traditional.videoId}?autoplay=1`;
-        traditionalPlayer.style.display = 'block';
-        document.getElementById('no-video-traditional').style.display = 'none';
-    } else {
-        traditionalPlayer.style.display = 'none';
-        document.getElementById('no-video-traditional').style.display = 'block';
-    }
+    // Generate views for each item
+    config.items.forEach(item => {
+        const view = document.createElement('div');
+        view.id = `${item.id}-view`;
+        view.className = 'view';
+        const isPlaylist = item.type === 'playlist';
+        const src = isPlaylist
+            ? `https://www.youtube.com/embed/videoseries?list=${item.playlistId}`
+            : `https://www.youtube.com/embed/${item.videoId}`;
+        view.innerHTML = `
+            <div class="video-container">
+                <iframe id="${item.id}-frame" 
+                        src="${src}" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen></iframe>
+                <button class="fullscreen-btn" onclick="toggleFullscreen('${item.id}-view')">
+                    <i class="fas fa-expand"></i> Fullscreen
+                </button>
+            </div>
+            <button class="reload-btn" onclick="reloadFrame('${item.id}-view')">
+                <i class="fas fa-sync-alt"></i> Reload
+            </button>
+        `;
+        document.body.appendChild(view);
+    });
 }
 
 // Show/Hide Back Button
@@ -44,7 +63,7 @@ function showView(viewId) {
     document.querySelectorAll('.view').forEach(view => {
         view.classList.remove('active');
     });
-    document.getElementById(viewId).classList.add('active');
+    document.getElementById(`${viewId}-view`).classList.add('active');
 
     // Show back button if not on the home page
     showBackButton(viewId !== 'home-view');
@@ -71,11 +90,6 @@ function toggleFullscreen(viewId) {
     } else {
         document.exitFullscreen();
     }
-}
-
-// Open External Links
-function openLink(url) {
-    window.open(url, '_blank');
 }
 
 // Initialize Default View
