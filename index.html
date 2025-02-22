@@ -19,11 +19,11 @@
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
             </div>
-            <button class="fullscreen-btn" onclick="toggleFullscreen()">
+            <button class="fullscreen-btn" onclick="toggleFullscreen('modern-view')">
                 <i class="fas fa-expand"></i> Fullscreen
             </button>
         </div>
-        <button class="reload-btn" onclick="reloadVideo('modern')">
+        <button class="reload-btn" onclick="reloadFrame('modern-view')">
             <i class="fas fa-sync-alt"></i> Reload
         </button>
     </div>
@@ -39,18 +39,54 @@
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
             </div>
-            <button class="fullscreen-btn" onclick="toggleFullscreen()">
+            <button class="fullscreen-btn" onclick="toggleFullscreen('traditional-view')">
                 <i class="fas fa-expand"></i> Fullscreen
             </button>
         </div>
-        <button class="reload-btn" onclick="reloadVideo('traditional')">
+        <button class="reload-btn" onclick="reloadFrame('traditional-view')">
             <i class="fas fa-sync-alt"></i> Reload
         </button>
     </div>
 
+    <!-- TV Shows and Games Views -->
+    <div id="matlock-view" class="view">
+        <div class="video-container">
+            <iframe id="matlock-frame" 
+                    src="https://www.youtube.com/results?search_query=matlock+full+episodes" 
+                    frameborder="0" 
+                    allowfullscreen></iframe>
+            <button class="fullscreen-btn" onclick="toggleFullscreen('matlock-view')">
+                <i class="fas fa-expand"></i> Fullscreen
+            </button>
+        </div>
+        <button class="reload-btn" onclick="reloadFrame('matlock-view')">
+            <i class="fas fa-sync-alt"></i> Reload
+        </button>
+    </div>
+
+    <!-- Add similar divs for other TV shows and games -->
+    <!-- Example for Columbo -->
+    <div id="columbo-view" class="view">
+        <div class="video-container">
+            <iframe id="columbo-frame" 
+                    src="https://www.youtube.com/results?search_query=columbo+full+episodes" 
+                    frameborder="0" 
+                    allowfullscreen></iframe>
+            <button class="fullscreen-btn" onclick="toggleFullscreen('columbo-view')">
+                <i class="fas fa-expand"></i> Fullscreen
+            </button>
+        </div>
+        <button class="reload-btn" onclick="reloadFrame('columbo-view')">
+            <i class="fas fa-sync-alt"></i> Reload
+        </button>
+    </div>
+
+    <!-- Repeat for all other TV shows and games -->
+
     <!-- Home Page (Full Screen) -->
     <div id="home-view" class="view active">
         <div class="home-grid">
+            <!-- Worship Buttons -->
             <div class="home-button" onclick="showView('modern-view')">
                 <i class="fas fa-guitar"></i>
                 <span>Modern Worship</span>
@@ -59,6 +95,17 @@
                 <i class="fas fa-church"></i>
                 <span>Traditional Worship</span>
             </div>
+
+            <!-- TV Shows -->
+            <div class="home-button" onclick="showView('matlock-view')">
+                <i class="fas fa-gavel"></i>
+                <span>Matlock</span>
+            </div>
+            <div class="home-button" onclick="showView('columbo-view')">
+                <i class="fas fa-user-secret"></i>
+                <span>Columbo</span>
+            </div>
+            <!-- Add buttons for other TV shows and games -->
         </div>
     </div>
 

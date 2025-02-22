@@ -55,20 +55,17 @@ function goBack() {
     showView('home-view');
 }
 
-// Reload Video
-function reloadVideo(type) {
-    const player = document.getElementById(`youtube-stream-${type}`);
-    if (player.contentWindow) {
-        player.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-        player.src = player.src; // Reload the iframe
-    }
+// Reload Frame
+function reloadFrame(viewId) {
+    const frame = document.getElementById(`${viewId}`).querySelector('iframe');
+    frame.src = frame.src; // Reload the iframe
 }
 
 // Fullscreen Toggle
-function toggleFullscreen() {
-    const videoContainer = document.querySelector('.video-container');
+function toggleFullscreen(viewId) {
+    const container = document.getElementById(viewId).querySelector('.video-container');
     if (!document.fullscreenElement) {
-        videoContainer.requestFullscreen().catch(err => {
+        container.requestFullscreen().catch(err => {
             alert('Error attempting to enable fullscreen mode.');
         });
     } else {
