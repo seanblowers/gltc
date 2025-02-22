@@ -10,11 +10,6 @@ function showView(viewId) {
         view.classList.remove('active');
     });
     document.getElementById(viewId).classList.add('active');
-    
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    event.currentTarget.classList.add('active');
 
     // Show back button if not on the default view
     showBackButton(viewId !== 'modern-view');

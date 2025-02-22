@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Modern Church View -->
+    <!-- Modern Worship View -->
     <div id="modern-view" class="view church-view active">
         <div class="video-container">
             <iframe id="youtube-stream-modern" 
@@ -28,7 +28,7 @@
         </button>
     </div>
 
-    <!-- Traditional Church View -->
+    <!-- Traditional Worship View -->
     <div id="traditional-view" class="view church-view">
         <div class="video-container">
             <iframe id="youtube-stream-traditional" 
@@ -48,22 +48,22 @@
         </button>
     </div>
 
+    <!-- App Grid -->
+    <div id="app-grid" class="app-grid">
+        <div class="app-icon" onclick="showView('modern-view')">
+            <i class="fas fa-guitar"></i>
+            <span>Modern Worship</span>
+        </div>
+        <div class="app-icon" onclick="showView('traditional-view')">
+            <i class="fas fa-church"></i>
+            <span>Traditional Worship</span>
+        </div>
+    </div>
+
     <!-- Back Button -->
     <button id="back-btn" class="back-btn" onclick="goBack()">
         <i class="fas fa-arrow-left"></i> Back
     </button>
-
-    <!-- Navigation Dock -->
-    <div class="nav-dock">
-        <button class="nav-btn active" onclick="showView('modern-view')" aria-label="Modern Church">
-            <i class="fas fa-guitar"></i>
-            <span>Modern</span>
-        </button>
-        <button class="nav-btn" onclick="showView('traditional-view')" aria-label="Traditional Church">
-            <i class="fas fa-church"></i>
-            <span>Traditional</span>
-        </button>
-    </div>
 
     <script src="script.js"></script>
 </body>
