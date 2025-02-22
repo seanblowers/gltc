@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>George's Care App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Main Views -->
+    <div id="home-view" class="view active">
+        <div class="slideshow-container">
+            <img src="images/photo1.jpg" class="slide active">
+            <img src="images/photo2.jpg" class="slide">
+            <img src="images/photo3.jpg" class="slide">
+        </div>
+    </div>
+
+    <div id="stream-view" class="view">
+        <div class="video-container">
+            <iframe id="youtube-stream" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div id="apps-view" class="view">
+        <div class="apps-grid">
+            <!-- Add more apps as needed -->
+            <div class="app-icon" onclick="launchApp('calendar')">
+                <i class="fas fa-calendar-day"></i>
+                <span>Calendar</span>
+            </div>
+            <div class="app-icon" onclick="launchApp('facetime')">
+                <i class="fas fa-video"></i>
+                <span>Video Call</span>
+            </div>
+            <div class="app-icon" onclick="launchApp('music')">
+                <i class="fas fa-music"></i>
+                <span>Music</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Dock -->
+    <div class="nav-dock">
+        <button class="nav-btn active" onclick="showView('home-view')">
+            <i class="fas fa-home"></i>
+        </button>
+        <button class="nav-btn" onclick="showView('stream-view')">
+            <i class="fas fa-church"></i>
+        </button>
+        <button class="nav-btn" onclick="showView('apps-view')">
+            <i class="fas fa-th-large"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
