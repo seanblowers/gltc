@@ -68,16 +68,16 @@ body {
 /* Reload Button */
 .reload-btn {
     position: absolute;
-    bottom: 20px;
+    bottom: 120px; /* Above the back button */
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 20px 40px;
+    font-size: 24px;
     background: rgba(44, 44, 46, 0.8);
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background 0.3s;
 }
@@ -89,14 +89,16 @@ body {
 /* Fullscreen Button */
 .fullscreen-btn {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 200px; /* Above the reload button */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10;
-    padding: 10px;
+    padding: 20px 40px;
+    font-size: 24px;
     background: rgba(44, 44, 46, 0.8);
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background 0.3s;
 }
@@ -108,15 +110,16 @@ body {
 /* Back Button */
 .back-btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 100;
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 20px 40px;
+    font-size: 24px;
     background: rgba(44, 44, 46, 0.8);
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background 0.3s;
     display: none; /* Hidden by default */
@@ -140,7 +143,7 @@ body {
 .home-button {
     background: #2c2c2e;
     border-radius: 20px;
-    padding: 40px;
+    padding: 60px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
@@ -157,12 +160,12 @@ body {
 }
 
 .home-button i {
-    font-size: 60px;
+    font-size: 80px;
     color: #fff;
     margin-bottom: 20px;
 }
 
 .home-button span {
     color: #fff;
-    font-size: 24px;
+    font-size: 32px;
 }

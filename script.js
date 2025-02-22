@@ -66,15 +66,4 @@ function reloadVideo(type) {
 
 // Fullscreen Toggle
 function toggleFullscreen() {
-    const videoContainer = document.querySelector('.video-container');
-    if (!document.fullscreenElement) {
-        videoContainer.requestFullscreen().catch(err => {
-            alert('Error attempting to enable fullscreen mode.');
-        });
-    } else {
-        document.exitFullscreen();
-    }
-}
-
-// Initialize Default View
-showView('home-view');
+    const videoContainer = document.querySelector
