@@ -73,5 +73,10 @@ function toggleFullscreen(viewId) {
     }
 }
 
+// Open External Links
+function openLink(url) {
+    window.open(url, '_blank');
+}
+
 // Initialize Default View
 showView('home-view');
