@@ -1,25 +1,29 @@
-// Video Configuration
-const videoConfig = [
-    {
-        element: 'youtube-stream1',
-        fallback: 'no-video1',
-        videoId: 'VIDEO_ID_1' // Replace with actual ID or null
-    },
-    {
-        element: 'youtube-stream2',
-        fallback: 'no-video2',
-        videoId: 'VIDEO_ID_2' // Replace with actual ID or null
-    }
-];
+// Load configuration from JSON
+let config;
+
+fetch('config.json')
+    .then(response => response.json())
+    .then(data => {
+        config = data;
+        initializeVideos();
+        startAutoRefresh();
+    })
+    .catch(error => console.error('Error loading config:', error));
 
 // Initialize Videos
 function initializeVideos() {
-    videoConfig.forEach(config => {
-        const player = document.getElementById(config.element);
-        const fallback = document.getElementById(config.fallback);
-        
-        if (config.videoId) {
-            player.src = `https://www.youtube.com/embed/${config.videoId}?autoplay=1`;
+    const videoConfig = [
+        { type: 'modern', element: 'youtube-stream-modern', fallback: 'no-video-modern' },
+        { type: 'traditional', element: 'youtube-stream-traditional', fallback: 'no-video-traditional' }
+    ];
+
+    videoConfig.forEach(video => {
+        const player = document.getElementById(video.element);
+        const fallback = document.getElementById(video.fallback);
+        const videoId = config[video.type].videoId;
+
+        if (videoId) {
+            player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
             player.style.display = 'block';
             fallback.style.display = 'none';
         } else {
@@ -27,6 +31,23 @@ function initializeVideos() {
             fallback.style.display = 'block';
         }
     });
+}
+
+// Reload Video
+function reloadVideo(type) {
+    const player = document.getElementById(`youtube-stream-${type}`);
+    if (player.contentWindow) {
+        player.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        player.src = player.src; // Reload the iframe
+    }
+}
+
+// Auto Refresh
+function startAutoRefresh() {
+    setInterval(() => {
+        reloadVideo('modern');
+        reloadVideo('traditional');
+    }, 30 * 60 * 1000); // 30 minutes
 }
 
 // Slideshow Functionality
@@ -39,7 +60,6 @@ function nextSlide() {
     slides[slideIndex].classList.add('active');
 }
 
-// Change slide every 10 seconds
 setInterval(nextSlide, 10000);
 
 // View Navigation
@@ -69,25 +89,3 @@ function launchApp(app) {
             break;
     }
 }
-
-// Video Controls
-function pauseAllVideos() {
-    videoConfig.forEach(config => {
-        const player = document.getElementById(config.element);
-        if (player.contentWindow) {
-            player.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-        }
-    });
-}
-
-function playAllVideos() {
-    videoConfig.forEach(config => {
-        const player = document.getElementById(config.element);
-        if (player.contentWindow) {
-            player.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        }
-    });
-}
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', initializeVideos);

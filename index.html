@@ -17,28 +17,37 @@
         </div>
     </div>
 
-    <div id="stream-view" class="view">
+    <!-- Church Stream Views -->
+    <div id="modern-view" class="view church-view">
         <div class="video-container">
-            <iframe id="youtube-stream1" 
+            <iframe id="youtube-stream-modern" 
                     frameborder="0" 
                     allow="autoplay; encrypted-media" 
                     allowfullscreen></iframe>
-            <div id="no-video1" class="no-video-message">
+            <div id="no-video-modern" class="no-video-message">
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
             </div>
         </div>
-        
+        <button class="reload-btn" onclick="reloadVideo('modern')">
+            <i class="fas fa-sync-alt"></i> Reload
+        </button>
+    </div>
+
+    <div id="traditional-view" class="view church-view">
         <div class="video-container">
-            <iframe id="youtube-stream2" 
+            <iframe id="youtube-stream-traditional" 
                     frameborder="0" 
                     allow="autoplay; encrypted-media" 
                     allowfullscreen></iframe>
-            <div id="no-video2" class="no-video-message">
+            <div id="no-video-traditional" class="no-video-message">
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
             </div>
         </div>
+        <button class="reload-btn" onclick="reloadVideo('traditional')">
+            <i class="fas fa-sync-alt"></i> Reload
+        </button>
     </div>
 
     <div id="apps-view" class="view">
@@ -63,17 +72,14 @@
         <button class="nav-btn active" onclick="showView('home-view')" aria-label="Home">
             <i class="fas fa-home"></i>
         </button>
-        <button class="nav-btn" onclick="showView('stream-view')" aria-label="Church Stream">
+        <button class="nav-btn" onclick="showView('modern-view')" aria-label="Modern Church">
+            <i class="fas fa-guitar"></i>
+        </button>
+        <button class="nav-btn" onclick="showView('traditional-view')" aria-label="Traditional Church">
             <i class="fas fa-church"></i>
         </button>
         <button class="nav-btn" onclick="showView('apps-view')" aria-label="Apps">
             <i class="fas fa-th-large"></i>
-        </button>
-        <button class="nav-btn" onclick="pauseAllVideos()" aria-label="Pause Videos">
-            <i class="fas fa-pause"></i>
-        </button>
-        <button class="nav-btn" onclick="playAllVideos()" aria-label="Play Videos">
-            <i class="fas fa-play"></i>
         </button>
     </div>
 

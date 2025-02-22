@@ -73,6 +73,24 @@ body {
     font-size: 24px;
 }
 
+/* Reload Button */
+.reload-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 18px;
+    background: #2c2c2e;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.reload-btn:hover {
+    background: #3c3c3e;
+}
+
 /* Apps Grid */
 .apps-grid {
     display: grid;
