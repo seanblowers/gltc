@@ -8,17 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Main Views -->
-    <div id="home-view" class="view active">
-        <div class="slideshow-container">
-            <img src="images/photo1.jpg" class="slide active" alt="Family Photo 1">
-            <img src="images/photo2.jpg" class="slide" alt="Family Photo 2">
-            <img src="images/photo3.jpg" class="slide" alt="Family Photo 3">
-        </div>
-    </div>
-
     <!-- Modern Church View -->
-    <div id="modern-view" class="view church-view">
+    <div id="modern-view" class="view church-view active">
         <div class="video-container">
             <iframe id="youtube-stream-modern" 
                     frameborder="0" 
@@ -57,37 +48,20 @@
         </button>
     </div>
 
-    <!-- Apps View -->
-    <div id="apps-view" class="view">
-        <div class="apps-grid">
-            <div class="app-icon" onclick="launchApp('calendar')">
-                <i class="fas fa-calendar-day"></i>
-                <span>Calendar</span>
-            </div>
-            <div class="app-icon" onclick="launchApp('facetime')">
-                <i class="fas fa-video"></i>
-                <span>Video Call</span>
-            </div>
-            <div class="app-icon" onclick="launchApp('music')">
-                <i class="fas fa-music"></i>
-                <span>Music</span>
-            </div>
-        </div>
-    </div>
+    <!-- Back Button -->
+    <button id="back-btn" class="back-btn" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i> Back
+    </button>
 
     <!-- Navigation Dock -->
     <div class="nav-dock">
-        <button class="nav-btn active" onclick="showView('home-view')" aria-label="Home">
-            <i class="fas fa-home"></i>
-        </button>
-        <button class="nav-btn" onclick="showView('modern-view')" aria-label="Modern Church">
+        <button class="nav-btn active" onclick="showView('modern-view')" aria-label="Modern Church">
             <i class="fas fa-guitar"></i>
+            <span>Modern</span>
         </button>
         <button class="nav-btn" onclick="showView('traditional-view')" aria-label="Traditional Church">
             <i class="fas fa-church"></i>
-        </button>
-        <button class="nav-btn" onclick="showView('apps-view')" aria-label="Apps">
-            <i class="fas fa-th-large"></i>
+            <span>Traditional</span>
         </button>
     </div>
 
