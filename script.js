@@ -76,21 +76,4 @@ function goBack() {
 
 // Reload Frame
 function reloadFrame(viewId) {
-    const frame = document.getElementById(`${viewId}`).querySelector('iframe');
-    frame.src = frame.src; // Reload the iframe
-}
-
-// Fullscreen Toggle
-function toggleFullscreen(viewId) {
-    const container = document.getElementById(viewId).querySelector('.video-container');
-    if (!document.fullscreenElement) {
-        container.requestFullscreen().catch(err => {
-            alert('Error attempting to enable fullscreen mode.');
-        });
-    } else {
-        document.exitFullscreen();
-    }
-}
-
-// Initialize Default View
-showView('home-view');
+    const frame = document.getElementById(`${viewId}`

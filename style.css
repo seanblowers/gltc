@@ -22,112 +22,6 @@ body {
     display: block;
 }
 
-/* Video Container */
-.video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh; /* Full screen */
-    background: #000;
-    overflow: hidden;
-}
-
-/* iframe */
-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* No Video Message */
-.no-video-message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-    opacity: 0.7;
-    display: none;
-}
-
-.no-video-message i {
-    font-size: 50px;
-    margin-bottom: 10px;
-}
-
-.no-video-message p {
-    font-size: 24px;
-}
-
-/* Reload Button */
-.reload-btn {
-    position: absolute;
-    bottom: 120px; /* Above the back button */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    padding: 20px 40px;
-    font-size: 24px;
-    background: rgba(44, 44, 46, 0.8);
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.reload-btn:hover {
-    background: rgba(44, 44, 46, 1);
-}
-
-/* Fullscreen Button */
-.fullscreen-btn {
-    position: absolute;
-    bottom: 200px; /* Above the reload button */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    padding: 20px 40px;
-    font-size: 24px;
-    background: rgba(44, 44, 46, 0.8);
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.fullscreen-btn:hover {
-    background: rgba(44, 44, 46, 1);
-}
-
-/* Back Button */
-.back-btn {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    padding: 20px 40px;
-    font-size: 24px;
-    background: rgba(44, 44, 46, 0.8);
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-    display: none; /* Hidden by default */
-}
-
-.back-btn:hover {
-    background: rgba(44, 44, 46, 1);
-}
-
 /* Home Page Grid */
 .home-grid {
     display: grid;
@@ -164,4 +58,26 @@ iframe {
 .home-button span {
     color: #fff;
     font-size: 24px;
+}
+
+/* Back Button */
+.back-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    padding: 20px 40px;
+    font-size: 24px;
+    background: rgba(44, 44, 46, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: none; /* Hidden by default */
+}
+
+.back-btn:hover {
+    background: rgba(44, 44, 46, 1);
 }
