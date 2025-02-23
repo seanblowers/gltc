@@ -8,13 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
     <!-- Modern Worship View -->
     <div id="modern-view" class="view church-view">
         <div class="video-container">
-            <iframe id="youtube-stream-modern" 
-                    frameborder="0" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen></iframe>
+            <iframe id="youtube-stream-modern" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <div id="no-video-modern" class="no-video-message">
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
@@ -31,10 +29,7 @@
     <!-- Traditional Worship View -->
     <div id="traditional-view" class="view church-view">
         <div class="video-container">
-            <iframe id="youtube-stream-traditional" 
-                    frameborder="0" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen></iframe>
+            <iframe id="youtube-stream-traditional" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <div id="no-video-traditional" class="no-video-message">
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
@@ -48,29 +43,24 @@
         </button>
     </div>
 
-<!-- TV Shows and Games Views -->
-<div id="matlock-view" class="view">
-    <div class="video-container">
-        <iframe id="matlock-frame" 
-                src="" 
-                frameborder="0" 
-                allowfullscreen></iframe>
-        <button class="fullscreen-btn" disabled>
+    <!-- TV Shows and Games Views -->
+    <div id="matlock-view" class="view">
+        <div class="video-container">
+            <iframe id="matlock-frame" src="" frameborder="0" allowfullscreen></iframe>
+            <button class="fullscreen-btn" disabled>
+                <i class="fas fa-hourglass-half"></i> More Coming Soon
+            </button>
+        </div>
+        <button class="reload-btn" disabled>
             <i class="fas fa-hourglass-half"></i> More Coming Soon
         </button>
     </div>
-    <button class="reload-btn" disabled>
-        <i class="fas fa-hourglass-half"></i> More Coming Soon
-    </button>
-</div>
 
-
-    <!-- Add similar divs for other TV shows and games -->
     <!-- Example for Columbo -->
     <div id="columbo-view" class="view">
         <div class="video-container">
             <iframe id="columbo-frame" 
-                    src="https://youtu.be/hRUZqVvLUio?si=MpRiSmYlk-ap9_wA" 
+                    src="https://www.youtube.com/embed/hRUZqVvLUio" 
                     frameborder="0" 
                     allowfullscreen></iframe>
             <button class="fullscreen-btn" onclick="toggleFullscreen('columbo-view')">
@@ -81,24 +71,6 @@
             <i class="fas fa-sync-alt"></i> Reload
         </button>
     </div>
-
-    <!-- Repeat for all other TV shows and games -->
-
-<!-- TV Shows and Games Views -->
-<div id="matlock-view" class="view">
-    <div class="video-container">
-        <iframe id="matlock-frame" 
-                src="" 
-                frameborder="0" 
-                allowfullscreen></iframe>
-        <button class="fullscreen-btn" disabled>
-            <i class="fas fa-hourglass-half"></i> More Coming Soon
-        </button>
-    </div>
-    <button class="reload-btn" disabled>
-        <i class="fas fa-hourglass-half"></i> More Coming Soon
-    </button>
-</div>
 
     <!-- Back Button -->
     <button id="back-btn" class="back-btn" onclick="goBack()">
