@@ -7,37 +7,32 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
     background: #1a1a1a;
+    color: white;
+    text-align: center;
     height: 100vh;
-    overflow: hidden;
-    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Views */
 .view {
-    display: none;
-    height: 100vh; /* Full screen */
-}
-
-.view.active {
-    display: block;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
 }
 
 /* Video Container */
 .video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    height: 100vh; /* Full screen */
+    height: 45vh;
     background: #000;
-    overflow: hidden;
 }
 
 /* iframe */
 iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     border: none;
@@ -64,104 +59,16 @@ iframe {
     font-size: 24px;
 }
 
-/* Reload Button */
-.reload-btn {
-    position: absolute;
-    bottom: 120px; /* Above the back button */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    padding: 20px 40px;
-    font-size: 24px;
-    background: rgba(44, 44, 46, 0.8);
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.reload-btn:hover {
-    background: rgba(44, 44, 46, 1);
-}
-
-/* Fullscreen Button */
-.fullscreen-btn {
-    position: absolute;
-    bottom: 200px; /* Above the reload button */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    padding: 20px 40px;
-    font-size: 24px;
-    background: rgba(44, 44, 46, 0.8);
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.fullscreen-btn:hover {
-    background: rgba(44, 44, 46, 1);
-}
-
-/* Back Button */
-.back-btn {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    padding: 20px 40px;
-    font-size: 24px;
-    background: rgba(44, 44, 46, 0.8);
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-    display: none; /* Hidden by default */
-}
-
-.back-btn:hover {
-    background: rgba(44, 44, 46, 1);
-}
-
-/* Home Page Grid */
-.home-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    height: 100vh;
-    overflow-y: auto; /* Scrollable grid */
-}
-
-.home-button {
-    background: #2c2c2e;
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
+/* More Coming Soon */
+.more-coming {
+    margin-top: 20px;
+    font-size: 22px;
+    color: #bbb;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.home-button:active {
-    transform: scale(0.95);
-}
-
-.home-button i {
-    font-size: 60px;
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-.home-button span {
-    color: #fff;
-    font-size: 24px;
+.more-coming i {
+    margin-right: 10px;
 }

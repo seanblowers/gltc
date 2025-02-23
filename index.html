@@ -17,13 +17,7 @@
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
             </div>
-            <button class="fullscreen-btn" onclick="toggleFullscreen('modern-view')">
-                <i class="fas fa-expand"></i> Fullscreen
-            </button>
         </div>
-        <button class="reload-btn" onclick="reloadFrame('modern-view')">
-            <i class="fas fa-sync-alt"></i> Reload
-        </button>
     </div>
 
     <!-- Traditional Worship View -->
@@ -34,48 +28,14 @@
                 <i class="fas fa-video-slash"></i>
                 <p>Sermon not available</p>
             </div>
-            <button class="fullscreen-btn" onclick="toggleFullscreen('traditional-view')">
-                <i class="fas fa-expand"></i> Fullscreen
-            </button>
         </div>
-        <button class="reload-btn" onclick="reloadFrame('traditional-view')">
-            <i class="fas fa-sync-alt"></i> Reload
-        </button>
     </div>
 
-    <!-- TV Shows and Games Views -->
-    <div id="matlock-view" class="view">
-        <div class="video-container">
-            <iframe id="matlock-frame" src="" frameborder="0" allowfullscreen></iframe>
-            <button class="fullscreen-btn" disabled>
-                <i class="fas fa-hourglass-half"></i> More Coming Soon
-            </button>
-        </div>
-        <button class="reload-btn" disabled>
-            <i class="fas fa-hourglass-half"></i> More Coming Soon
-        </button>
+    <!-- More Coming Soon Message -->
+    <div class="more-coming">
+        <i class="fas fa-hourglass-half"></i>
+        <p>More Coming Soon</p>
     </div>
-
-    <!-- Example for Columbo -->
-    <div id="columbo-view" class="view">
-        <div class="video-container">
-            <iframe id="columbo-frame" 
-                    src="https://www.youtube.com/embed/hRUZqVvLUio" 
-                    frameborder="0" 
-                    allowfullscreen></iframe>
-            <button class="fullscreen-btn" onclick="toggleFullscreen('columbo-view')">
-                <i class="fas fa-expand"></i> Fullscreen
-            </button>
-        </div>
-        <button class="reload-btn" onclick="reloadFrame('columbo-view')">
-            <i class="fas fa-sync-alt"></i> Reload
-        </button>
-    </div>
-
-    <!-- Back Button -->
-    <button id="back-btn" class="back-btn" onclick="goBack()">
-        <i class="fas fa-arrow-left"></i> Back to Home
-    </button>
 
     <script src="script.js"></script>
 </body>
