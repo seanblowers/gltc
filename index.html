@@ -48,21 +48,57 @@
         </button>
     </div>
 
-    <!-- TV Shows and Games Views -->
-    <div id="matlock-view" class="view">
+<!-- TV Shows and Games Views -->
+<div id="matlock-view" class="view">
+    <div class="video-container">
+        <iframe id="matlock-frame" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen></iframe>
+        <button class="fullscreen-btn" disabled>
+            <i class="fas fa-hourglass-half"></i> More Coming Soon
+        </button>
+    </div>
+    <button class="reload-btn" disabled>
+        <i class="fas fa-hourglass-half"></i> More Coming Soon
+    </button>
+</div>
+
+
+    <!-- Add similar divs for other TV shows and games -->
+    <!-- Example for Columbo -->
+    <div id="columbo-view" class="view">
         <div class="video-container">
-            <iframe id="matlock-frame" 
-                    src="https://youtu.be/SQgdfJoxX1s?si=YC3p_b1gP26jhOAs" 
+            <iframe id="columbo-frame" 
+                    src="https://youtu.be/hRUZqVvLUio?si=MpRiSmYlk-ap9_wA" 
                     frameborder="0" 
                     allowfullscreen></iframe>
-            <button class="fullscreen-btn" onclick="toggleFullscreen('matlock-view')">
+            <button class="fullscreen-btn" onclick="toggleFullscreen('columbo-view')">
                 <i class="fas fa-expand"></i> Fullscreen
             </button>
         </div>
-        <button class="reload-btn" onclick="reloadFrame('matlock-view')">
+        <button class="reload-btn" onclick="reloadFrame('columbo-view')">
             <i class="fas fa-sync-alt"></i> Reload
         </button>
     </div>
+
+    <!-- Repeat for all other TV shows and games -->
+
+<!-- TV Shows and Games Views -->
+<div id="matlock-view" class="view">
+    <div class="video-container">
+        <iframe id="matlock-frame" 
+                src="" 
+                frameborder="0" 
+                allowfullscreen></iframe>
+        <button class="fullscreen-btn" disabled>
+            <i class="fas fa-hourglass-half"></i> More Coming Soon
+        </button>
+    </div>
+    <button class="reload-btn" disabled>
+        <i class="fas fa-hourglass-half"></i> More Coming Soon
+    </button>
+</div>
 
     <!-- Back Button -->
     <button id="back-btn" class="back-btn" onclick="goBack()">
