@@ -1,18 +1,13 @@
-let config;
-
-// Load configuration from JSON
-fetch('config.json')
-    .then(response => response.json())
-    .then(data => {
-        config = data;
-        initializeApp();
-    })
-    .catch(error => console.error('Error loading config:', error));
-
-// Initialize App
 function initializeApp() {
     // Generate home page buttons
     const homeGrid = document.querySelector('.home-grid');
+    if (!homeGrid) {
+        console.error('Home grid not found!');
+        return;
+    }
+
+    console.log('Generating buttons for:', config.items); // Debug log
+
     config.items.forEach(item => {
         const button = document.createElement('div');
         button.className = 'home-button';
@@ -51,29 +46,3 @@ function initializeApp() {
         document.body.appendChild(view);
     });
 }
-
-// Show/Hide Back Button
-function showBackButton(show) {
-    const backBtn = document.getElementById('back-btn');
-    backBtn.style.display = show ? 'block' : 'none';
-}
-
-// View Navigation
-function showView(viewId) {
-    document.querySelectorAll('.view').forEach(view => {
-        view.classList.remove('active');
-    });
-    document.getElementById(`${viewId}-view`).classList.add('active');
-
-    // Show back button if not on the home page
-    showBackButton(viewId !== 'home-view');
-}
-
-// Go Back to Home Page
-function goBack() {
-    showView('home-view');
-}
-
-// Reload Frame
-function reloadFrame(viewId) {
-    const frame = document.getElementById(`${viewId}`
