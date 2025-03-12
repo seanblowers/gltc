@@ -2,12 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover">
     <title>George's Care App</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .datetime {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        /* Views */
+        .view {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 45vh;
+            background: #000;
+        }
+
+        /* iframe */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* No Video Message */
+        .no-video-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            opacity: 0.7;
+            display: none;
+        }
+
+        .no-video-message i {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .no-video-message p {
+            font-size: 24px;
+        }
+
+        /* More Coming Soon */
+        .more-coming {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #bbb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .more-coming i {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Date and Time Display -->
+    <div id="datetime" class="datetime"></div>
 
     <!-- Modern Worship View -->
     <div id="modern-view" class="view church-view">
@@ -20,14 +106,22 @@
         </div>
     </div>
 
-
-
     <!-- More Coming Soon Message -->
     <div class="more-coming">
         <i class="fas fa-hourglass-half"></i>
         <p>More Coming Soon</p>
     </div>
 
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById('datetime').textContent = now.toLocaleDateString('en-US', options);
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+    
     <script src="script.js"></script>
 </body>
 </html>
