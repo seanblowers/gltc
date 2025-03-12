@@ -12,19 +12,19 @@
             background: #1a1a1a;
             color: white;
             margin: 0;
-            padding: 15px;
+            padding: 20px;
             min-height: 100vh;
             display: grid;
             grid-template-rows: auto 1fr;
-            gap: 15px;
+            gap: 20px;
             box-sizing: border-box;
         }
 
         #datetime {
-            font-size: 24px;
-            padding: 15px;
+            font-size: 28px;
+            padding: 20px;
             background: #2d2d2d;
-            border-radius: 12px;
+            border-radius: 15px;
             text-align: center;
             margin: 0 auto;
             width: 100%;
@@ -34,53 +34,57 @@
         .widget-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto repeat(3, 1fr);
-            gap: 15px;
+            grid-template-rows: auto repeat(2, auto);
+            gap: 20px;
             max-width: 1000px;
             margin: 0 auto;
             width: 100%;
-            height: calc(100vh - 100px);
+            height: calc(100vh - 140px);
         }
 
         .widget {
             background: #333;
-            border-radius: 12px;
-            padding: 20px;
-            overflow: auto;
+            border-radius: 15px;
+            padding: 25px;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
         }
 
         .welcome-widget {
             grid-column: 1 / -1;
-            grid-row: 1;
             background: #2d2d2d;
-            border-left: 6px solid #4CAF50;
+            border-left: 8px solid #4CAF50;
+            padding: 30px;
         }
 
         .nav-buttons {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
-            height: 100%;
+            gap: 20px;
+            flex-grow: 1;
         }
 
         .nav-button {
             background: #3d3d3d;
             border: none;
             color: white;
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 22px;
+            padding: 35px;
+            border-radius: 15px;
+            font-size: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 25px;
             transition: background 0.2s ease;
-            text-align: left;
+            text-align: center;
+            width: 100%;
+            min-height: 120px;
         }
 
         .nav-button i {
-            font-size: 28px;
-            min-width: 40px;
+            font-size: 45px;
+            min-width: 60px;
         }
 
         .nav-button:hover {
@@ -89,29 +93,45 @@
 
         .widget-title {
             color: #76D7C4;
-            font-size: 24px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #4CAF50;
+            font-size: 32px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #4CAF50;
         }
 
         #schedule-list, 
         #messages-list, 
         #photo-album {
-            font-size: 20px;
+            font-size: 28px;
             color: #ddd;
-            line-height: 1.5;
+            line-height: 1.6;
+            padding: 15px;
+            flex-grow: 1;
         }
 
-        /* Responsive Grid Adjustments */
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .widget-container {
                 grid-template-columns: 1fr;
                 height: auto;
             }
             
-            .widget {
-                grid-column: 1 / -1 !important;
+            .nav-button {
+                padding: 30px;
+                font-size: 28px;
+                min-height: 100px;
+            }
+            
+            .nav-button i {
+                font-size: 38px;
+            }
+            
+            .widget-title {
+                font-size: 28px;
+            }
+            
+            #datetime {
+                font-size: 24px;
             }
         }
     </style>
@@ -123,7 +143,7 @@
         <!-- Welcome Widget -->
         <div class="widget welcome-widget">
             <div class="widget-title">👋 Welcome George!</div>
-            <p>Tap a button below to see your schedule, messages, or Sunday service.</p>
+            <p style="font-size: 24px; margin-top: 15px;">Tap a button below to see your schedule, messages, or Sunday service.</p>
         </div>
 
         <!-- Quick Actions -->
@@ -155,23 +175,19 @@
             </div>
         </div>
 
-        <!-- Messages Widget -->
+        <!-- Combined Messages & Photos -->
         <div class="widget">
-            <div class="widget-title">💌 Messages</div>
+            <div class="widget-title">💌 Messages & Photos</div>
             <div id="messages-list">
                 <p>Sarah: Love you Dad! ❤️<br>
                 John: See you tomorrow!<br>
-                Care Team: Reminder: Medication</p>
-            </div>
-        </div>
-
-        <!-- Photo Widget -->
-        <div class="widget">
-            <div class="widget-title">🖼️ Photo Album</div>
-            <div id="photo-album">
-                <p>Family Reunion 2023<br>
-                Grandkids Visit<br>
-                Birthday Celebration</p>
+                Care Team: Medication Reminder</p>
+                <div style="margin-top: 20px;">
+                    <div class="widget-title" style="font-size: 28px; border: none;">🖼️ Recent Photos</div>
+                    <p>Family Reunion 2023<br>
+                    Birthday Celebration<br>
+                    Garden Update</p>
+                </div>
             </div>
         </div>
     </div>
