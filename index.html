@@ -2,89 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>George's Care App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Elder-Friendly Grid Layout */
+        /* Full Screen No-Scroll Layout */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
             background: #1a1a1a;
             color: white;
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
+            height: 100vh;
+            width: 100vw;
             display: grid;
             grid-template-rows: auto 1fr;
-            gap: 20px;
-            box-sizing: border-box;
+            overflow: hidden;
         }
 
         #datetime {
-            font-size: 28px;
-            padding: 20px;
+            font-size: 5vw;
+            padding: 2vh;
             background: #2d2d2d;
-            border-radius: 15px;
             text-align: center;
-            margin: 0 auto;
-            width: 100%;
-            max-width: 1000px;
+            border-bottom: 3px solid #4CAF50;
         }
 
-        .widget-container {
+        .main-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto repeat(2, auto);
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            width: 100%;
-            height: calc(100vh - 140px);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1vh;
+            padding: 1vh;
+            height: calc(100vh - 10vh);
         }
 
         .widget {
             background: #333;
-            border-radius: 15px;
-            padding: 25px;
-            overflow: visible;
+            padding: 3vh;
             display: flex;
             flex-direction: column;
+            border-radius: 2vh;
+            overflow: hidden;
         }
 
-        .welcome-widget {
-            grid-column: 1 / -1;
-            background: #2d2d2d;
-            border-left: 8px solid #4CAF50;
-            padding: 30px;
-        }
-
-        .nav-buttons {
+        .nav-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
-            flex-grow: 1;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 1vh;
+            height: 100%;
         }
 
         .nav-button {
             background: #3d3d3d;
             border: none;
             color: white;
-            padding: 35px;
-            border-radius: 15px;
-            font-size: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 25px;
+            gap: 2vw;
             transition: background 0.2s ease;
-            text-align: center;
+            font-size: 4vw;
+            border-radius: 2vh;
             width: 100%;
-            min-height: 120px;
+            height: 100%;
         }
 
         .nav-button i {
-            font-size: 45px;
-            min-width: 60px;
+            font-size: 6vw;
         }
 
         .nav-button:hover {
@@ -92,74 +82,83 @@
         }
 
         .widget-title {
+            font-size: 4vw;
             color: #76D7C4;
-            font-size: 32px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #4CAF50;
+            margin-bottom: 2vh;
+            padding-bottom: 1vh;
+            border-bottom: 2px solid #4CAF50;
         }
 
-        #schedule-list, 
-        #messages-list, 
-        #photo-album {
-            font-size: 28px;
-            color: #ddd;
-            line-height: 1.6;
-            padding: 15px;
+        .content {
+            font-size: 3.5vw;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1.5;
         }
 
-        /* Responsive Adjustments */
+        /* Specific Widget Adjustments */
+        #welcome {
+            grid-column: 1 / -1;
+            background: #2d2d2d;
+            border-left: 1vh solid #4CAF50;
+            justify-content: center;
+        }
+
+        #welcome p {
+            font-size: 4vw;
+            margin-top: 2vh;
+        }
+
         @media (max-width: 768px) {
-            .widget-container {
+            .main-grid {
                 grid-template-columns: 1fr;
-                height: auto;
+                grid-template-rows: auto repeat(3, 1fr);
             }
             
             .nav-button {
-                padding: 30px;
-                font-size: 28px;
-                min-height: 100px;
+                font-size: 6vw;
             }
             
             .nav-button i {
-                font-size: 38px;
+                font-size: 8vw;
             }
             
             .widget-title {
-                font-size: 28px;
+                font-size: 6vw;
             }
             
-            #datetime {
-                font-size: 24px;
+            .content {
+                font-size: 5vw;
             }
         }
     </style>
 </head>
 <body>
-    <div id="datetime" class="datetime"></div>
+    <div id="datetime"></div>
 
-    <div class="widget-container">
+    <div class="main-grid">
         <!-- Welcome Widget -->
-        <div class="widget welcome-widget">
+        <div class="widget" id="welcome">
             <div class="widget-title">👋 Welcome George!</div>
-            <p style="font-size: 24px; margin-top: 15px;">Tap a button below to see your schedule, messages, or Sunday service.</p>
+            <p class="content">Tap a button to see your schedule, messages, or Sunday service</p>
         </div>
 
         <!-- Quick Actions -->
         <div class="widget">
             <div class="widget-title">🚀 Quick Actions</div>
-            <div class="nav-buttons">
+            <div class="nav-grid">
                 <button class="nav-button" onclick="window.location.href='sunday.html'">
-                    <i class="fas fa-church"></i>Sunday Service
+                    <i class="fas fa-church"></i>Sunday
                 </button>
                 <button class="nav-button" onclick="loadData()">
-                    <i class="fas fa-calendar-alt"></i>My Schedule
+                    <i class="fas fa-calendar-alt"></i>Schedule
                 </button>
                 <button class="nav-button" onclick="loadData()">
                     <i class="fas fa-envelope"></i>Messages
                 </button>
-                <button class="nav-button" onclick="alert('Photo feature coming soon!')">
+                <button class="nav-button" onclick="alert('Photos coming soon!')">
                     <i class="fas fa-camera-retro"></i>Photos
                 </button>
             </div>
@@ -167,27 +166,21 @@
 
         <!-- Schedule Widget -->
         <div class="widget">
-            <div class="widget-title">📅 My Schedule</div>
-            <div id="schedule-list">
-                <p>9:00 AM - Morning Walk<br>
-                2:00 PM - Doctor Appointment<br>
-                7:00 PM - Family Call</p>
+            <div class="widget-title">📅 Today's Schedule</div>
+            <div class="content">
+                9AM - Morning Walk<br>
+                2PM - Doctor<br>
+                7PM - Family Call
             </div>
         </div>
 
-        <!-- Combined Messages & Photos -->
+        <!-- Messages Widget -->
         <div class="widget">
-            <div class="widget-title">💌 Messages & Photos</div>
-            <div id="messages-list">
-                <p>Sarah: Love you Dad! ❤️<br>
-                John: See you tomorrow!<br>
-                Care Team: Medication Reminder</p>
-                <div style="margin-top: 20px;">
-                    <div class="widget-title" style="font-size: 28px; border: none;">🖼️ Recent Photos</div>
-                    <p>Family Reunion 2023<br>
-                    Birthday Celebration<br>
-                    Garden Update</p>
-                </div>
+            <div class="widget-title">💌 Recent Messages</div>
+            <div class="content">
+                Sarah: ❤️ Love you!<br>
+                John: See you tomorrow<br>
+                Nurse: Meds reminder
             </div>
         </div>
     </div>
@@ -206,6 +199,11 @@
         }
         setInterval(updateDateTime, 1000);
         updateDateTime();
+        
+        // Force resize on orientation change
+        window.addEventListener('orientationchange', () => {
+            window.location.reload();
+        });
     </script>
 </body>
 </html>
