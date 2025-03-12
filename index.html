@@ -15,7 +15,9 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
+            gap: 20px;
             padding: 20px;
         }
 
@@ -23,49 +25,37 @@
             font-size: 32px;
             font-weight: bold;
             padding: 10px;
-            width: 100%;
+            width: 90%;
             text-align: center;
             background: rgba(0, 0, 0, 0.7);
             color: #fff;
-        }
-
-        .title {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .schedule-container {
-            width: 100%;
-            max-width: 400px;
-            background: #333;
-            padding: 20px;
             border-radius: 10px;
         }
 
-        .event {
-            background: #444;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
+        .widget-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1000px;
         }
 
-        .event-time {
-            font-size: 18px;
+        .widget {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .widget-title {
+            font-size: 22px;
             font-weight: bold;
-        }
-
-        .buttons-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-            max-width: 400px;
-            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         .button {
             padding: 15px;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             background-color: #444;
             color: white;
@@ -77,6 +67,7 @@
             justify-content: center;
             gap: 10px;
             transition: background 0.3s;
+            width: 100%;
         }
 
         .button:hover {
@@ -89,29 +80,27 @@
     <!-- Date and Time Display -->
     <div id="datetime" class="datetime"></div>
 
-    <!-- Welcome Message -->
-    <div class="title">Hi George! Welcome to your care app.</div>
-
-    <!-- Navigation Buttons -->
-    <div class="buttons-container">
-        <button class="button" onclick="location.href='sunday.html'">
-            <i class="fas fa-church"></i> Watch Sunday Service
-        </button>
-        <button class="button" onclick="location.href='schedule.html'">
-            <i class="fas fa-calendar-alt"></i> View My Schedule
-        </button>
-        <button class="button" onclick="location.href='messages.html'">
-            <i class="fas fa-envelope"></i> Messages from Family
-        </button>
-        <button class="button" onclick="location.href='photos.html'">
-            <i class="fas fa-images"></i> See My Photos
-        </button>
-    </div>
-
-    <!-- Schedule Section -->
-    <div class="title">📅 My Schedule</div>
-    <div class="schedule-container" id="schedule-list">
-        <p>Loading schedule...</p>
+    <!-- Widgets Container -->
+    <div class="widget-container">
+        <div class="widget">
+            <div class="widget-title">📅 My Schedule</div>
+            <div id="schedule-list"><p>Loading schedule...</p></div>
+        </div>
+        <div class="widget">
+            <div class="widget-title">Quick Links</div>
+            <button class="button" onclick="location.href='sunday.html'">
+                <i class="fas fa-church"></i> Watch Sunday Service
+            </button>
+            <button class="button" onclick="location.href='schedule.html'">
+                <i class="fas fa-calendar-alt"></i> View My Schedule
+            </button>
+            <button class="button" onclick="location.href='messages.html'">
+                <i class="fas fa-envelope"></i> Messages from Family
+            </button>
+            <button class="button" onclick="location.href='photos.html'">
+                <i class="fas fa-images"></i> See My Photos
+            </button>
+        </div>
     </div>
 
     <script>
@@ -132,8 +121,8 @@
                 
                 data.schedule.forEach(event => {
                     const eventDiv = document.createElement('div');
-                    eventDiv.classList.add('event');
-                    eventDiv.innerHTML = `<div class="event-time">${event.time} - ${event.date}</div><p>${event.event}</p>`;
+                    eventDiv.classList.add('widget');
+                    eventDiv.innerHTML = `<div class="widget-title">${event.time} - ${event.date}</div><p>${event.event}</p>`;
                     scheduleList.appendChild(eventDiv);
                 });
             } catch (error) {
