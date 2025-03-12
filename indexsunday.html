@@ -21,40 +21,46 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
         .datetime {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
-            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
             color: #fff;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Views */
         .view {
             width: 100%;
-            max-width: 800px;
-            margin-bottom: 20px;
+            height: 90vh;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        /* Video Container */
         .video-container {
             position: relative;
             width: 100%;
-            height: 45vh;
+            height: 90vh;
             background: #000;
         }
 
-        /* iframe */
         iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        /* No Video Message */
         .no-video-message {
             position: absolute;
             top: 50%;
@@ -75,7 +81,6 @@
             font-size: 24px;
         }
 
-        /* More Coming Soon */
         .more-coming {
             margin-top: 20px;
             font-size: 22px;
@@ -104,12 +109,6 @@
                 <p>Sermon not available</p>
             </div>
         </div>
-    </div>
-
-    <!-- More Coming Soon Message -->
-    <div class="more-coming">
-        <i class="fas fa-hourglass-half"></i>
-        <p>More Coming Soon</p>
     </div>
 
     <script>
