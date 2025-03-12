@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover">
+    <title>My Schedule</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .schedule-container {
+            width: 100%;
+            max-width: 400px;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .event {
+            background: #444;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .event-time {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">📅 My Schedule</div>
+    <div class="schedule-container" id="schedule-list">
+        <p>Loading schedule...</p>
+    </div>
+
+    <script>
+        async function loadSchedule() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                const scheduleList = document.getElementById('schedule-list');
+                scheduleList.innerHTML = ''; // Clear previous content
+                
+                data.schedule.forEach(event => {
+                    const eventDiv = document.createElement('div');
+                    eventDiv.classList.add('event');
+                    eventDiv.innerHTML = `<div class="event-time">${event.time} - ${event.date}</div><p>${event.event}</p>`;
+                    scheduleList.appendChild(eventDiv);
+                });
+            } catch (error) {
+                document.getElementById('schedule-list').innerHTML = '<p>Error loading schedule.</p>';
+            }
+        }
+        
+        loadSchedule();
+    </script>
+</body>
+</html>
