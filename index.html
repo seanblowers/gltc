@@ -36,7 +36,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             width: 90%;
-            max-width: 1000px;
+            max-width: 1200px;
         }
 
         .widget {
@@ -44,7 +44,7 @@
             padding: 20px;
             border-radius: 10px;
             text-align: left;
-            min-height: 200px;
+            min-height: 250px;
         }
 
         .widget-title {
@@ -53,7 +53,7 @@
             margin-bottom: 10px;
         }
 
-        .message-item, .schedule-item {
+        .message-item, .schedule-item, .photo-item {
             margin-bottom: 10px;
             padding: 10px;
             background: #444;
@@ -95,27 +95,36 @@
         async function loadData() {
             try {
                 const response = await fetch('data.json');
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 
                 // Load Schedule
                 const scheduleList = document.getElementById('schedule-list');
                 scheduleList.innerHTML = '';
-                data.schedule.forEach(event => {
-                    const eventDiv = document.createElement('div');
-                    eventDiv.classList.add('schedule-item');
-                    eventDiv.innerHTML = `<strong>${event.time} - ${event.date}</strong><br>${event.event}`;
-                    scheduleList.appendChild(eventDiv);
-                });
+                if (data.schedule.length > 0) {
+                    data.schedule.forEach(event => {
+                        const eventDiv = document.createElement('div');
+                        eventDiv.classList.add('schedule-item');
+                        eventDiv.innerHTML = `<strong>${event.time} - ${event.date}</strong><br>${event.event}`;
+                        scheduleList.appendChild(eventDiv);
+                    });
+                } else {
+                    scheduleList.innerHTML = '<p>No events scheduled.</p>';
+                }
                 
                 // Load Messages
                 const messagesList = document.getElementById('messages-list');
                 messagesList.innerHTML = '';
-                data.messages.forEach(msg => {
-                    const msgDiv = document.createElement('div');
-                    msgDiv.classList.add('message-item');
-                    msgDiv.innerHTML = `<strong>${msg.from} - ${msg.date}</strong><br>${msg.message}`;
-                    messagesList.appendChild(msgDiv);
-                });
+                if (data.messages.length > 0) {
+                    data.messages.forEach(msg => {
+                        const msgDiv = document.createElement('div');
+                        msgDiv.classList.add('message-item');
+                        msgDiv.innerHTML = `<strong>${msg.from} - ${msg.date}</strong><br>${msg.message}`;
+                        messagesList.appendChild(msgDiv);
+                    });
+                } else {
+                    messagesList.innerHTML = '<p>No new messages.</p>';
+                }
 
                 // Load Photos (Placeholder for now)
                 const photoAlbum = document.getElementById('photo-album');
