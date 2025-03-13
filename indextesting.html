@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George's Care App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Previous styles remain intact */
+        /* New photo-specific styles */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .photo-item {
+            position: relative;
+            padding-top: 100%; /* Square aspect ratio */
+            background: #444;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .photo-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Adjust existing layout to accommodate photos */
+        .main-content {
+            grid-template-rows: auto 1fr 1fr auto; /* Added auto for photo row */
+        }
+
+        .photos-widget {
+            grid-column: 1 / -1;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="datetime"></div>
+
+    <div class="main-content">
+        <!-- Previous widgets remain same -->
+
+        <!-- New Photos Widget -->
+        <div class="widget photos-widget">
+            <div class="widget-title">🖼️ Recent Photos</div>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="placeholder-family.jpg" alt="Family reunion">
+                    <div class="photo-label">Family Reunion</div>
+                </div>
+                <div class="photo-item">
+                    <img src="placeholder-garden.jpg" alt="Garden update">
+                    <div class="photo-label">Garden</div>
+                </div>
+                <div class="photo-item">
+                    <img src="placeholder-birthday.jpg" alt="Birthday celebration">
+                    <div class="photo-label">Birthday</div>
+                </div>
+                <div class="photo-item">
+                    <div class="view-more">View More</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Previous JavaScript remains same
+    </script>
+</body>
+</html>
