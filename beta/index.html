@@ -1,225 +1,85 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="1800">
-    <title>George's Care App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>George's App - Home</title>
     <style>
         :root {
-            --text-color: #000;
-            --bg-color: #fff;
-            --highlight: #ff0;
-            --button-size: 100px;
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --button-bg: #0066cc;
         }
 
         body {
             margin: 0;
             padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 35px;
-            background: var(--bg-color);
-            color: var(--text-color);
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            background: var(--bg-color);
+            color: var(--text-color);
             min-height: 100vh;
-            box-sizing: border-box;
+            transition: background 0.3s ease;
         }
 
         .widget {
+            padding: 20px;
+            border-radius: 15px;
             background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        .app-button {
             width: 100%;
-        }
-
-        .big-button {
             padding: 30px;
-            background: #0066cc;
-            color: white;
-            border: none;
-            border-radius: 20px;
             font-size: 35px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-align: center;
-            min-height: var(--button-size);
-        }
-
-        #clock {
-            font-size: 50px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        #weather {
-            font-size: 40px;
-            text-align: center;
-        }
-
-        #messages {
-            width: 100%;
-            max-width: 600px;
-        }
-
-        .message {
-            background: #ffe;
-            padding: 15px;
             margin: 10px 0;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .home-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 20px;
-            background: #cc0000;
+            border: none;
+            border-radius: 15px;
+            background: var(--button-bg);
             color: white;
-            border-radius: 50%;
-            font-size: 35px;
         }
     </style>
 </head>
 <body>
-    <!-- Weather Widget -->
-    <div class="widget" id="weather">
-        <div id="weather-info">Loading weather...</div>
-    </div>
-
-    <!-- Digital Clock -->
     <div class="widget">
-        <div id="clock"></div>
+        <button class="app-button" onclick="location.href='videos.html'">
+            📺 Watch Church
+        </button>
+        <button class="app-button" onclick="location.href='photos.html'">
+            📸 View Photos
+        </button>
+        <button class="app-button" onclick="location.href='solitaire.html'">
+            ♠️ Play Solitaire
+        </button>
+        <button class="app-button" onclick="location.href='blockblast.html'">
+            🧱 Block Blast
+        </button>
     </div>
 
-    <!-- Main Buttons Grid -->
     <div class="widget">
-        <div class="button-grid">
-            <button class="big-button" onclick="openYouTube()">
-                <i class="fas fa-church"></i>
-                Watch Church
-            </button>
-            <button class="big-button" onclick="openPhotos()">
-                <i class="fas fa-images"></i>
-                View Photos
-            </button>
-            <button class="big-button" onclick="playGame('solitaire')">
-                <i class="fas fa-cards"></i>
-                Play Solitaire
-            </button>
-            <button class="big-button" onclick="playGame('blockblast')">
-                <i class="fas fa-gamepad"></i>
-                Block Blast
-            </button>
-        </div>
+        <div id="clock" style="font-size: 50px; font-weight: bold;"></div>
     </div>
-
-    <!-- Family Messages -->
-    <div class="widget" id="messages">
-        <h2>Family Messages</h2>
-        <div id="messages-list"></div>
-        <input type="text" id="new-message" placeholder="New message">
-        <button onclick="addMessage()">Add Message</button>
-    </div>
-
-    <!-- Home Button -->
-    <button class="home-button" aria-label="Return to Home">
-        <i class="fas fa-home"></i>
-    </button>
 
     <script>
-        // Clock Update
+        function updateTheme() {
+            const hour = new Date().getHours();
+            const isDay = hour >= 7 && hour < 19;
+            document.documentElement.style.setProperty('--bg-color', isDay ? '#ffffff' : '#1a1a1a');
+            document.documentElement.style.setProperty('--text-color', isDay ? '#000000' : '#ffffff');
+            document.documentElement.style.setProperty('--button-bg', isDay ? '#0066cc' : '#4d94ff');
+        }
+
         function updateClock() {
-            const now = new Date();
-            document.getElementById('clock').innerHTML = 
-                now.toLocaleTimeString() + "<br>" + now.toLocaleDateString();
+            document.getElementById('clock').textContent = 
+                new Date().toLocaleTimeString();
         }
         setInterval(updateClock, 1000);
+        setInterval(updateTheme, 60000);
+        updateTheme();
         updateClock();
-
-        // Weather Update
-        async function getWeather() {
-            try {
-                const response = await fetch(
-                    'https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=YOUR_API_KEY'
-                );
-                const data = await response.json();
-                const weather = `${data.main.temp}°C<br>${data.weather[0].main}`;
-                document.getElementById('weather-info').innerHTML = weather;
-            } catch (error) {
-                console.error('Error fetching weather:', error);
-            }
-        }
-        getWeather();
-
-        // Messages System
-        let messages = JSON.parse(localStorage.getItem('messages')) || [];
-        
-        function renderMessages() {
-            const container = document.getElementById('messages-list');
-            container.innerHTML = messages.map((msg, index) => `
-                <div class="message">
-                    <span>${msg}</span>
-                    <button onclick="deleteMessage(${index})">×</button>
-                </div>
-            `).join('');
-        }
-
-        function addMessage() {
-            const input = document.getElementById('new-message');
-            if (input.value) {
-                messages.push(input.value);
-                localStorage.setItem('messages', JSON.stringify(messages));
-                input.value = '';
-                renderMessages();
-            }
-        }
-
-        function deleteMessage(index) {
-            messages.splice(index, 1);
-            localStorage.setItem('messages', JSON.stringify(messages));
-            renderMessages();
-        }
-
-        // Button Actions
-        function openYouTube() {
-            window.open('https://www.youtube.com/yourchurchchannel', '_blank');
-        }
-
-        function openPhotos() {
-            window.open('https://your.smugmug.com', '_blank');
-        }
-
-        function playGame(game) {
-            alert(`Launching ${game}...`); // Replace with actual game integration
-        }
-
-        // Initial Setup
-        renderMessages();
-        document.addEventListener('DOMContentLoaded', () => {
-            document.body.style.setProperty('--bg-color', '#fff');
-            document.body.style.setProperty('--text-color', '#000');
-        });
     </script>
 </body>
 </html>
