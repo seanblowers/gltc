@@ -33,9 +33,8 @@
                     wakeLock = await navigator.wakeLock.request('screen');
                     console.log("Wake Lock is active");
 
-                    // Reacquire the wake lock if it gets released
                     wakeLock.addEventListener('release', () => {
-                        console.log("Wake Lock was released, requesting again...");
+                        console.log("Wake Lock released, reactivating...");
                         requestWakeLock();
                     });
                 }
@@ -52,10 +51,19 @@
             }
         }
 
-        // Activate wake lock when page loads
-        document.addEventListener("DOMContentLoaded", requestWakeLock);
+        // Simulate user activity to prevent kiosk mode from timing out
+        function simulateUserActivity() {
+            document.dispatchEvent(new Event('mousemove')); // Fake a mouse movement
+            console.log("Simulated activity");
+        }
 
-        // Release wake lock when user leaves the page
+        // Start wake lock and activity simulation
+        document.addEventListener("DOMContentLoaded", () => {
+            requestWakeLock();
+            setInterval(simulateUserActivity, 30000); // Simulate every 30 seconds
+        });
+
+        // Release wake lock when leaving
         window.addEventListener("beforeunload", releaseWakeLock);
     </script>
 </body>
