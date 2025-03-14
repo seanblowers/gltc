@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,22 +49,10 @@
 
     <!-- Schedule Image Container -->
     <div class="schedule-container">
-        <div class="image-grid" id="content-container">
+        <div class="image-grid">
     <img src="16-22.png" alt="Image 1" class="schedule-image">
-    <img id="dynamic-content" src="16-22.gif" alt="Image 2" class="schedule-image">
+    <img src="16-22.gif" alt="Image 2" class="schedule-image">
 </div>
-<script>
-    const today = new Date();
-    if (today.getDay() === 5) { // Friday for testing
-        document.getElementById("dynamic-content").outerHTML = 
-            `<iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/U5rKBV38arI" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>`;
-    }
-</script>
     </div>
 
     <!-- Popup Container -->
