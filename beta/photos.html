@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Family Photos</title>
     <link rel="stylesheet" href="common.css">
+    <style>
+        .content-wrapper {
+            position: absolute;
+            top: 50px; /* Adjust based on header height */
+            left: 0;
+            width: 100%;
+            height: calc(100% - 50px); /* Fill remaining space */
+        }
+        .content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -16,7 +30,7 @@
 
     <div class="content-wrapper">
         <div class="content">
-            <!-- Add photo grid content here -->
+            <iframe src="https://photos.seanblowers.com/Church/March" allowfullscreen></iframe>
         </div>
     </div>
 
