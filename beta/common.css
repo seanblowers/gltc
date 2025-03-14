@@ -204,3 +204,30 @@ body {
         grid-template-rows: 1fr;
     }
 }
+
+/* Block Blast Specific Styles */
+.game-container {
+    flex: 1;
+    margin: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #000;
+}
+
+.game-container iframe {
+    width: 100%;
+    height: calc(100vh - var(--header-height) - 40px);
+    border: none;
+    background: #000;
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        margin: 10px;
+        height: calc(100vh - var(--header-height) - 20px);
+    }
+    
+    .game-container iframe {
+        height: calc(100vh - var(--header-height) - 20px);
+    }
+}
