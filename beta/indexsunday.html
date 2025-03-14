@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George's App - Home</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .popup p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="clock"></div>
+    </div>
+
+    <div class="main-grid">
+        <button class="app-button" onclick="location.href='videos.html'">
+            📺 Watch Church
+        </button>
+        <button class="app-button" onclick="location.href='photos.html'">
+            📸 View Photos
+        </button>
+        <button class="app-button" onclick="showPopup()">
+            ♠️ Play Solitaire
+        </button>
+        <button class="app-button" onclick="location.href='blockblast.html'">
+            🧱 Block Blast
+        </button>
+    </div>
+
+    <!-- Schedule Image Container -->
+    <div class="schedule-container">
+        <div class="image-grid" id="content-container">
+    <img src="image1.jpg" alt="Image 1" class="schedule-image">
+    <img id="dynamic-content" src="image2.jpg" alt="Image 2" class="schedule-image">
+</div>
+<script>
+    const today = new Date();
+    if (today.getDay() === 0) { // Sunday
+        document.getElementById("dynamic-content").outerHTML = 
+            '<iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>';
+    }
+</script>
+    </div>
+
+    <!-- Popup Container -->
+    <div id="popup" class="popup">
+        <p id="message">Not available yet</p>
+        <p id="countdown">Closing in: 5 seconds</p>
+    </div>
+
+    <script src="common.js"></script>
+    <script>
+        // Function to show popup and handle countdown
+        function showPopup() {
+            const popup = document.getElementById('popup');
+            const message = document.getElementById('message');
+            const countdown = document.getElementById('countdown');
+            let timeLeft = 5;
+
+            // Show the popup
+            popup.style.display = 'block';
+
+            // Countdown function
+            const countdownInterval = setInterval(() => {
+                timeLeft--;
+                countdown.textContent = `Closing in: ${timeLeft} seconds`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    popup.style.display = 'none';
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
