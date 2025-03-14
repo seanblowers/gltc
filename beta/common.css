@@ -232,18 +232,20 @@ body {
     }
 }
 
-/* Image Grid for Two Pictures */
+/* Image Grid for Two Pictures - Scaled to Fit */
 .image-grid {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     padding: 20px;
+    max-width: 100%;
+    flex-wrap: wrap;
 }
 
 .image-grid img {
-    width: 1920px;
-    height: 1080px;
+    max-width: 45vw; /* Scale images down to fit within viewport width */
+    max-height: 45vh; /* Scale images down to fit within viewport height */
     object-fit: contain;
     border-radius: 10px;
 }
