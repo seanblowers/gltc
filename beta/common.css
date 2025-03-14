@@ -231,3 +231,19 @@ body {
         height: calc(100vh - var(--header-height) - 20px);
     }
 }
+
+/* Image Grid for Two Pictures */
+.image-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-grid img {
+    width: 1920px;
+    height: 1080px;
+    object-fit: contain;
+    border-radius: 10px;
+}
