@@ -1,0 +1,104 @@
+/* Global Styles */
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --accent: #00c8ff;
+    --card-bg: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* Clock Styles */
+.clock {
+    font-family: 'Courier New', monospace;
+    font-weight: 300;
+    font-size: 3.5rem;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
+}
+
+/* Button Styles */
+.home-button {
+    background: var(--accent);
+    color: var(--bg-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.app-button {
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    color: var(--text-color);
+    padding: 30px;
+    border-radius: 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: transform 0.2s;
+    width: 100%;
+}
+
+/* Grid Layouts */
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+}
+
+.content {
+    flex-grow: 1;
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Iframe Styles */
+.iframe-container {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: 100%;
+}

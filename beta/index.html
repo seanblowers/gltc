@@ -1,50 +1,17 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>George's App - Home</title>
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --button-bg: #0066cc;
-        }
-
-        body {
-            margin: 0;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            background: var(--bg-color);
-            color: var(--text-color);
-            min-height: 100vh;
-            transition: background 0.3s ease;
-        }
-
-        .widget {
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .app-button {
-            width: 100%;
-            padding: 30px;
-            font-size: 35px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 15px;
-            background: var(--button-bg);
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="common.css">
 </head>
 <body>
-    <div class="widget">
+    <div class="header">
+        <div class="clock"></div>
+    </div>
+
+    <div class="main-grid">
         <button class="app-button" onclick="location.href='videos.html'">
             📺 Watch Church
         </button>
@@ -59,27 +26,6 @@
         </button>
     </div>
 
-    <div class="widget">
-        <div id="clock" style="font-size: 50px; font-weight: bold;"></div>
-    </div>
-
-    <script>
-        function updateTheme() {
-            const hour = new Date().getHours();
-            const isDay = hour >= 7 && hour < 19;
-            document.documentElement.style.setProperty('--bg-color', isDay ? '#ffffff' : '#1a1a1a');
-            document.documentElement.style.setProperty('--text-color', isDay ? '#000000' : '#ffffff');
-            document.documentElement.style.setProperty('--button-bg', isDay ? '#0066cc' : '#4d94ff');
-        }
-
-        function updateClock() {
-            document.getElementById('clock').textContent = 
-                new Date().toLocaleTimeString();
-        }
-        setInterval(updateClock, 1000);
-        setInterval(updateTheme, 60000);
-        updateTheme();
-        updateClock();
-    </script>
+    <script src="common.js"></script>
 </body>
 </html>

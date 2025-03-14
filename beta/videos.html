@@ -1,33 +1,28 @@
-<!-- videos.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Church Videos</title>
-    <style>
-        /* Shared styles */
-        :root { --bg-color: #fff; --text-color: #000; }
-        body { margin: 0; padding: 20px; background: var(--bg-color); color: var(--text-color); height: 100vh; display: flex; flex-direction: column; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .home-button { padding: 15px 30px; font-size: 35px; border: none; border-radius: 15px; background: #cc0000; color: white; }
-        .video-container { flex-grow: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        iframe { width: 100%; height: 100%; border: none; border-radius: 15px; }
-    </style>
+    <link rel="stylesheet" href="common.css">
 </head>
 <body>
     <div class="header">
-        <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
-        <button class="home-button" onclick="location.href='index.html'">🏠 Home</button>
+        <div class="clock"></div>
+        <button class="home-button" onclick="location.href='index.html'">
+            🏠 Home
+        </button>
     </div>
 
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="video-grid">
+                <iframe class="iframe-container" src="https://www.youtube.com/embed/VIDEO_ID_1"></iframe>
+                <iframe class="iframe-container" src="https://www.youtube.com/embed/VIDEO_ID_2"></iframe>
+            </div>
+        </div>
     </div>
 
-    <script>
-        // Same theme/clock logic as index.html
-    </script>
+    <script src="common.js"></script>
 </body>
 </html>
