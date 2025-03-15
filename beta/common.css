@@ -56,12 +56,12 @@ body {
     border-radius: 10px;
 }
 
-/* Button Styles - Fully Restored */
+/* 🔥 FINAL Button Fixes - Matches Correct Image */
 .app-button {
     background: var(--card-bg);
     border: 2px solid var(--accent);
     color: var(--text-color);
-    padding: 15px 25px; /* Ensures correct size */
+    padding: 15px 25px;
     border-radius: 10px;
     font-size: 1.3rem;
     cursor: pointer;
@@ -70,20 +70,24 @@ body {
     justify-content: center;
     gap: 10px;
     transition: transform 0.2s, background 0.2s;
-    width: 100%; /* Ensures buttons take full width */
-    max-width: 450px; /* Keeps them compact */
+    width: 100%; /* Forces buttons to fill space */
+    max-width: 400px; /* Prevents buttons from being too big */
     height: auto;
     text-align: center;
 }
 
-/* Grid Layout - Fixed */
+/* 💯 Button Grid - Fully Fixed */
 .main-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two buttons per row */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers buttons horizontally */
     gap: 15px; /* Adds space between buttons */
     padding: 20px;
-    justify-content: center;
-    align-items: center;
+}
+
+.main-grid .app-button {
+    flex: 1 1 calc(50% - 20px); /* Two buttons per row, accounting for gap */
+    max-width: 450px; /* Prevents them from stretching too much */
 }
 
 /* Button Hover Effects */
@@ -148,13 +152,14 @@ body {
     font-weight: bold;
 }
 
-/* Responsive Adjustments */
+/* 📱 Responsive Adjustments (Mobile Fixes) */
 @media (max-width: 768px) {
     .main-grid {
-        grid-template-columns: 1fr; /* Stacks buttons for small screens */
+        flex-direction: column; /* Stacks buttons vertically on small screens */
     }
 
-    .app-button {
+    .main-grid .app-button {
+        flex: 1 1 100%; /* Forces full width for mobile */
         max-width: 100%;
     }
 
