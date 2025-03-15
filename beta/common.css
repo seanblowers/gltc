@@ -61,7 +61,7 @@ body {
     background: var(--card-bg);
     border: 2px solid var(--accent);
     color: var(--text-color);
-    padding: 18px 28px;
+    padding: 20px 28px;
     border-radius: 10px;
     font-size: 1.4rem;
     cursor: pointer;
