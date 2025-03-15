@@ -180,6 +180,36 @@ body {
     border-radius: 15px;
 }
 
+/* Weather Widget Styles */
+.weather-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    margin: 0 20px;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.weather-widget .temp {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.weather-widget .humidity {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.weather-widget .forecast {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .main-grid {
