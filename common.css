@@ -1,0 +1,184 @@
+/* Global Styles */
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --accent: #ff7b00;
+    --card-bg: #1a1a1a;
+    --header-height: 100px;
+    --schedule-height: 50vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    margin: 20px;
+    height: var(--header-height);
+}
+
+/* Clock Styles */
+.clock {
+    font-family: 'Courier New', monospace;
+    font-weight: 300;
+    font-size: 3.5rem;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
+}
+
+/* Worship Message Styles */
+.worship-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--accent);
+    padding: 15px;
+    margin-bottom: 10px;
+    background: var(--card-bg);
+    border-radius: 10px;
+}
+
+/* Button Styles */
+.app-button {
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    color: var(--text-color);
+    padding: 20px 20px; /* Increased padding to make buttons taller */
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s, background 0.2s;
+    width: 100%; /* Make buttons take up full width of their grid cell */
+    height: auto;
+    text-align: center;
+}
+.home-button {
+    background: var(--card-bg); /* Match the background of other buttons */
+    border: 2px solid var(--accent); /* Match the border color of other buttons */
+    color: var(--text-color); /* Match the text color of other buttons */
+    padding: 12px 20px; /* Match the padding of other buttons */
+    border-radius: 10px; /* Match the border radius of other buttons */
+    font-size: 1.2rem; /* Match the font size of other buttons */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Match the gap between icon and text */
+    transition: transform 0.2s, background 0.2s; /* Match the hover effect */
+    width: auto; /* Allow the button to size itself */
+    min-width: auto; /* Remove minimum width constraint */
+    text-align: center;
+}
+
+/* Home Button Hover Effect */
+.home-button:hover {
+    transform: scale(1.05); /* Match the hover effect of other buttons */
+    background: rgba(255, 123, 0, 0.1); /* Match the hover background of other buttons */
+}
+
+/* Main Grid Layout */
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 15px; /* Spacing between buttons */
+    padding: 20px; /* Padding around the grid */
+    margin: 20px; /* Margin to match the header */
+}
+
+/* Button Hover Effects */
+.app-button:hover {
+    transform: scale(1.05);
+    background: rgba(255, 123, 0, 0.1);
+}
+
+/* 50/50 Image & Video Layout */
+.image-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: var(--schedule-height);
+}
+
+.image-half {
+    width: 50%;
+    height: 100%;
+}
+
+.image-half img,
+.image-half iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Video Iframe */
+.worship-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Game and Video Container Styles */
+.game-container, .video-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.game-container iframe, .video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    
+    .app-button {
+        font-size: 1.2rem;
+        padding: 20px; /* Keep consistent padding on smaller screens */
+    }
+    
+    :root {
+        --header-height: 80px;
+        --schedule-height: 45vh;
+    }
+}
+
+@media (min-width: 1920px) {
+    .schedule-container {
+        padding: 20px;
+    }
+}
