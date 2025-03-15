@@ -120,13 +120,26 @@ body {
     background: rgba(255, 123, 0, 0.1);
 }
 
+/* Schedule Container */
+.schedule-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    height: calc(100vh - var(--header-height) - 80px); /* Adjust height to fit within viewport */
+}
+
 /* 50/50 Image & Video Layout */
 .image-grid {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: var(--schedule-height);
+    height: 100%; /* Ensure it takes full height of the container */
 }
 
 .image-half {
