@@ -79,8 +79,8 @@ body {
 .main-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 0px;
+    gap: 0px;
+    padding: 20px;
     width: 100%; /* Makes sure it fills the screen */
 }
 
