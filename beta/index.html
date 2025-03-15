@@ -53,16 +53,18 @@
 
     <!-- Schedule Image Container -->
     <div class="schedule-container">
-        <div class="image-grid" id="content-container">
+        <div class="image-grid">
             <img src="16-22.png" alt="Image 1" class="schedule-image">
-            <img id="dynamic-content" src="16-22.gif" alt="Image 2" class="schedule-image">
+            <div id="dynamic-content">
+                <img src="16-22.gif" alt="Image 2" class="schedule-image">
+            </div>
         </div>
     </div>
 
     <script>
         const today = new Date();
         if (today.getDay() === 0) { // Sunday
-            document.getElementById("dynamic-content").outerHTML = 
+            document.getElementById("dynamic-content").innerHTML = 
                 `<iframe class="worship-iframe"
                     src="https://www.youtube.com/embed/i-hgn85hHR0?si=EgxY9BfN-Rw3-sim"
                     frameborder="0"
