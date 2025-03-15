@@ -56,7 +56,29 @@ body {
     border-radius: 10px;
 }
 
-/* Split 50/50 Image Layout */
+/* Styled Buttons */
+.app-button {
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: transform 0.2s;
+    width: 100%;
+    height: 100%;
+}
+
+.app-button:hover {
+    transform: scale(1.05);
+}
+
+/* Grid Layout */
 .image-grid {
     display: flex;
     justify-content: center;
