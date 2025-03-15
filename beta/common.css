@@ -56,62 +56,26 @@ body {
     border-radius: 10px;
 }
 
-/* Button Styles */
-.home-button {
-    background: var(--accent);
-    color: var(--bg-color);
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: transform 0.2s;
+/* Split 50/50 Image Layout */
+.image-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    height: var(--schedule-height);
 }
 
-.app-button {
-    background: var(--card-bg);
-    border: 2px solid var(--accent);
-    color: var(--text-color);
-    padding: 20px;
-    border-radius: 15px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    transition: transform 0.2s;
-    width: 100%;
+.image-half {
+    width: 50%;
     height: 100%;
 }
 
-/* Main Grid Layout */
-.main-grid {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 15px;
-    padding: 0 20px 20px;
-    margin: 0 20px;
-    min-height: 0;
-    min-width: 0;
-}
-
-/* Schedule Container */
-.schedule-container {
-    height: var(--schedule-height);
-    background: #000;
-    border-top: 3px solid var(--accent);
-    padding: 10px;
-    min-height: 0;
-}
-
-.schedule-image {
+.image-half img,
+.image-half iframe {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    object-position: center top;
 }
 
 /* Video Iframe */
