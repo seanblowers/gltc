@@ -36,6 +36,19 @@
     font-weight: bold;
 }
 
+/* Night Mode Overlay */
+.night-mode-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+    z-index: 9999;
+}
+
     </style>
     <script src="weather.js" defer></script>
 </head>
@@ -44,6 +57,7 @@
         <div class="clock"></div>
 
         <div class="reminder-message">REMEMBER NO VISIT THURSDAY DUE TO IKEA TRIP</div>
+        <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
     </div>
 
     <div class="main-grid">
@@ -114,6 +128,8 @@
         <p id="countdown">Closing in: 5 seconds</p>
     </div>
 
+    <div id="night-mode-overlay" class="night-mode-overlay"></div>
+
     <script src="common.js"></script>
     <script>
         // Function to show popup and handle countdown
@@ -137,6 +153,28 @@
                 }
             }, 1000);
         }
+
+        function toggleNightMode() {
+            const overlay = document.getElementById('night-mode-overlay');
+            if (overlay.style.display === 'none' || overlay.style.display === '') {
+                overlay.style.display = 'block';
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        // Function to simulate time for testing
+        function simulateTime(hour) {
+            const overlay = document.getElementById('night-mode-overlay');
+            if (hour >= 20 || hour < 8) {
+                overlay.style.display = 'block';
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        // Simulate 8 PM for testing
+        simulateTime(8);
     </script>
 </body>
 </html>
