@@ -61,7 +61,7 @@ body {
     background: var(--card-bg); /* Black background */
     border: 2px solid var(--accent); /* Orange border */
     color: var(--text-color);
-    padding: 12px 20px; /* Make them smaller */
+    padding: 40px 20px; /* Make them smaller */
     border-radius: 10px; /* Slightly rounded edges */
     font-size: 1.2rem; /* Restore text size */
     cursor: pointer;
