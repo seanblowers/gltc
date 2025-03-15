@@ -56,41 +56,45 @@ body {
     border-radius: 10px;
 }
 
-/* 🔥 FINAL Button Fixes - Matches Correct Image */
+/* ✅ FINAL BUTTON FIX - Correct Order & Size */
 .app-button {
     background: var(--card-bg);
     border: 2px solid var(--accent);
     color: var(--text-color);
-    padding: 15px 25px;
+    padding: 20px 30px; /* Adjusted padding for perfect size */
     border-radius: 10px;
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Correct text size */
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     transition: transform 0.2s, background 0.2s;
-    width: 100%; /* Forces buttons to fill space */
-    max-width: 400px; /* Prevents buttons from being too big */
-    height: auto;
+    width: 100%;
+    max-width: 350px; /* Stops them from getting too wide */
+    height: 80px; /* Forces uniform button height */
     text-align: center;
 }
 
-/* 💯 Button Grid - Fully Fixed */
+/* 🔥 FIXED GRID - Locked Correct Button Order */
 .main-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centers buttons horizontally */
-    gap: 15px; /* Adds space between buttons */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     padding: 20px;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
 }
 
-.main-grid .app-button {
-    flex: 1 1 calc(50% - 20px); /* Two buttons per row, accounting for gap */
-    max-width: 450px; /* Prevents them from stretching too much */
-}
+/* Force the exact button order */
+.main-grid .app-button:nth-child(1) { order: 1; } /* Church */
+.main-grid .app-button:nth-child(4) { order: 2; } /* Block Blast */
+.main-grid .app-button:nth-child(2) { order: 3; } /* Photos */
+.main-grid .app-button:nth-child(3) { order: 4; } /* Solitaire */
 
-/* Button Hover Effects */
+/* Hover Effects */
 .app-button:hover {
     transform: scale(1.05);
     background: rgba(255, 123, 0, 0.1);
@@ -152,15 +156,15 @@ body {
     font-weight: bold;
 }
 
-/* 📱 Responsive Adjustments (Mobile Fixes) */
+/* 📱 Mobile Fix */
 @media (max-width: 768px) {
     .main-grid {
-        flex-direction: column; /* Stacks buttons vertically on small screens */
+        grid-template-columns: 1fr; /* Stacks buttons */
     }
 
-    .main-grid .app-button {
-        flex: 1 1 100%; /* Forces full width for mobile */
+    .app-button {
         max-width: 100%;
+        height: auto; /* Allows flexible height on smaller screens */
     }
 
     :root {
