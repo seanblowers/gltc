@@ -63,7 +63,7 @@
 
     <script>
         const today = new Date();
-        if (today.getDay() === 0) { // Sunday
+        if (today.getDay() === 0) { // If it's Sunday
             document.getElementById("dynamic-content").innerHTML = 
                 `<iframe class="worship-iframe"
                     src="https://www.youtube.com/embed/i-hgn85hHR0?si=EgxY9BfN-Rw3-sim"
@@ -71,7 +71,9 @@
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>`;
-            document.getElementById("worship-message").style.display = "none"; // Hide message on Sundays
+
+            // Hide the worship message
+            document.getElementById("worship-message").style.display = "none";
         }
     </script>
 
