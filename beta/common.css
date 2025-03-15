@@ -74,12 +74,28 @@ body {
     height: auto;
     text-align: center;
 }
-
-/* Home Button Styles */
 .home-button {
-    padding: 10px 15px;
-    font-size: 1.2rem;
-    min-width: auto;
+    background: var(--card-bg); /* Match the background of other buttons */
+    border: 2px solid var(--accent); /* Match the border color of other buttons */
+    color: var(--text-color); /* Match the text color of other buttons */
+    padding: 12px 20px; /* Match the padding of other buttons */
+    border-radius: 10px; /* Match the border radius of other buttons */
+    font-size: 1.2rem; /* Match the font size of other buttons */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Match the gap between icon and text */
+    transition: transform 0.2s, background 0.2s; /* Match the hover effect */
+    width: auto; /* Allow the button to size itself */
+    min-width: auto; /* Remove minimum width constraint */
+    text-align: center;
+}
+
+/* Home Button Hover Effect */
+.home-button:hover {
+    transform: scale(1.05); /* Match the hover effect of other buttons */
+    background: rgba(255, 123, 0, 0.1); /* Match the hover background of other buttons */
 }
 
 /* Main Grid Layout */
