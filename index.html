@@ -41,6 +41,7 @@
 <body>
     <div class="header">
         <div class="clock"></div>
+        <div class="reminder-message">REMEMBER NO VISIT THURSDAY DUE TO IKEA TRIP</div>
     </div>
 
     <div class="main-grid">
@@ -67,7 +68,7 @@
     <div class="schedule-container">
         <div class="image-grid">
             <div class="image-half">
-                <img src="16-22.png" alt="Image 1" class="schedule-image">
+                <img id="daily-image" src="" alt="Daily Image" class="schedule-image">
             </div>
             <div class="image-half" id="dynamic-content">
                 <img src="16-22.gif" alt="Image 2" class="schedule-image">
@@ -77,7 +78,20 @@
 
     <script>
         const today = new Date();
-        if (today.getDay() === 0) { // If it's Sunday
+        const dayOfWeek = today.getDay();
+        const dailyImage = document.getElementById('daily-image');
+        dailyImage.src = `/cal/${dayOfWeek}.png`;
+
+        //0 corresponds to Sunday
+        //1 corresponds to Monday
+        //2 corresponds to Tuesday
+        //3 corresponds to Wednesday
+        //4 corresponds to Thursday
+        //5 corresponds to Friday
+        //6 corresponds to Saturday
+
+        // check if day is sunday
+        if (dayOfWeek === 0) { // If it's Sunday
             document.getElementById("dynamic-content").innerHTML = 
                 `<iframe class="worship-iframe"
                     src="https://www.youtube.com/embed/i-hgn85hHR0?si=EgxY9BfN-Rw3-sim"

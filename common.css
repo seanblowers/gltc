@@ -2,7 +2,7 @@
 :root {
     --bg-color: #0a0a0a;
     --text-color: #e0e0e0;
-    --accent: #ff7b00;
+    --accent: #ffff00;
     --card-bg: #1a1a1a;
     --header-height: 100px;
     --schedule-height: 50vh;
@@ -54,6 +54,13 @@ body {
     margin-bottom: 10px;
     background: var(--card-bg);
     border-radius: 10px;
+}
+
+/* Reminder Message Styles */
+.reminder-message {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-left: 20px;
 }
 
 /* Button Styles */
