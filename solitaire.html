@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Solitaire</title>
+    <title>Block Blast</title>
     <link rel="stylesheet" href="common.css">
 </head>
 <body>
     <div class="header">
         <div class="clock"></div>
-        <button class="home-button" onclick="location.href='index.html'">
-            🏠 Home
-        </button>
+        <button class="home-button" onclick="location.href='index.html'">🏠 Home</button>
     </div>
 
-    <div class="content-wrapper">
-        <div class="content">
-            <iframe 
-                class="iframe-container" 
-                src="https://cardgames.io/solitaire/" 
-                title="Solitaire Game"
-                allowfullscreen>
-            </iframe>
-        </div>
+    <div class="game-container">
+        <iframe 
+            src="https://www.google.com/logos/fnbx/solitaire/standalone.html" 
+            title="Solitare"
+            allow="fullscreen"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
+        ></iframe>
     </div>
 
     <script src="common.js"></script>
