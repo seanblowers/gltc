@@ -56,7 +56,7 @@
     <div class="header">
         <div class="clock"></div>
 
-        <div class="reminder-message">REMEMBER NO VISIT THURSDAY DUE TO IKEA TRIP<BR>ANTIDEPRESSANTS?</div>
+        <div class="reminder-message">🛋️REMEMBER NO VISIT THURSDAY DUE TO IKEA TRIP🛋️<BR>💊ANTIDEPRESSANTS?💊<BR>😘SEAN AND BARBARA LOVE YOU 😘</div>
         <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
     </div>
 
@@ -170,6 +170,30 @@
             handleNightModeButton(hour);
         }
 
+        // Function to simulate day for testing
+        function simulateDay(day) {
+            const simulatedDate = new Date(today);
+            simulatedDate.setDate(today.getDate() - today.getDay() + day);
+            const simulatedDayOfWeek = simulatedDate.getDay();
+            const dailyImage = document.getElementById('daily-image');
+            dailyImage.src = `/cal/${simulatedDayOfWeek}.png`;
+
+            if (simulatedDayOfWeek === 0) { // If it's Sunday
+                document.getElementById("dynamic-content").innerHTML = 
+                    `<iframe class="worship-iframe"
+                        src="https://www.youtube.com/embed/i-hgn85hHR0?si=EgxY9BfN-Rw3-sim"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>`;
+                document.getElementById("worship-message").style.display = "none";
+            } else {
+                document.getElementById("dynamic-content").innerHTML = 
+                    `<img src="16-22.gif" alt="Image 2" class="schedule-image">`;
+                document.getElementById("worship-message").style.display = "block";
+            }
+        }
+
         // Initial call to handle night mode button
         handleNightModeButton();
 
@@ -177,8 +201,18 @@
         setInterval(() => handleNightModeButton(), 3600000); // Check every hour
 
         // Simulate 8 PM for testing
-        //simulateTime(8);
+        //simulateTime(10)
+        // Simulate Sunday for testing
+        //simulateDay(0);
     </script>
+
+<script>
+    // Refresh the page every 10 minutes
+    //setInterval(() => {
+     //   location.reload();
+  //  }, 600000); // 600000 milliseconds = 10 minutes
+   </script> 
+
 
     <!-- Popup Container -->
     <div id="popup" class="popup">
