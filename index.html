@@ -60,6 +60,11 @@
         <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
     </div>
 
+    <!-- Today in History Section -->
+    <div id="history-section" class="history-section">
+        <p id="history-fact">Loading...</p>
+    </div>
+
     <div class="main-grid">
         <button class="app-button" onclick="location.href='videos.html'">
             📺 Watch Church
@@ -120,6 +125,21 @@
             // Hide the worship message
             document.getElementById("worship-message").style.display = "none";
         }
+
+        // Facts for each day of the week
+        const historyFacts = [
+    "On this day in history, March 16, 1968, the first Boeing 747 was rolled out, changing air travel forever. You might remember when air travel was a special occasion, and everyone dressed up for a flight!", // Sunday
+    "On this day in history, March 17, 1958, the U.S. launched the Vanguard 1 satellite, one of the first man-made objects in space. Back then, space exploration was just getting started—now look at us with astronauts living on space stations!", // Monday
+    "On this day in history, March 18, 1965, Soviet cosmonaut Alexei Leonov became the first person to walk in space. Imagine the bravery it took to step out into the great unknown!", // Tuesday
+    "On this day in history, March 19, 1953, the Academy Awards were broadcast on television for the first time. Back in those days, you had to gather around the one family TV—no streaming, no pausing, just good old anticipation!", // Wednesday
+    "On this day in history, March 20, 1969, John Lennon and Yoko Ono got married. If you remember the Beatles’ heyday, you know how much of a sensation they were!", // Thursday
+    "On this day in history, March 21, 1963, the infamous Alcatraz prison officially closed. Some folks say no one ever successfully escaped—what do you think?", // Friday
+    "On this day in history, March 22, 1972, the Equal Rights Amendment was passed by the U.S. Senate and sent to the states for ratification. Times sure have changed since then, haven’t they?", // Saturday
+];
+
+
+        // Display the fact for today
+        document.getElementById('history-fact').textContent = historyFacts[dayOfWeek];
 
         // Function to show popup and handle countdown
         function showPopup() {
