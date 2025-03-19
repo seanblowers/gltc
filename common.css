@@ -211,6 +211,17 @@ body {
     color: var(--text-color);
 }
 
+/* Today in History Styles */
+.history-section {
+    background: var(--card-bg);
+    color: var(--accent); /* Use accent color for text */
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .main-grid {
