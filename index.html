@@ -55,8 +55,8 @@
 <body>
     <div class="header">
         <div class="clock"></div>
-
-        <div class="reminder-message">🛋️REMEMBER NO VISIT THURSDAY DUE TO IKEA TRIP🛋️<BR>💊ANTIDEPRESSANTS?💊<BR>😘SEAN AND BARBARA LOVE YOU 😘</div>
+<!---UPDATE EVERY WEEK--->
+        <div class="reminder-message">😘SEAN AND BARBARA LOVE YOU 😘</div>
         <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
     </div>
 
@@ -85,12 +85,13 @@
         Modern worship will appear here on Sundays.
     </div>
 
-    <!-- Schedule Image & GIF/Video Container (Split 50/50) -->
+    <!-- Schedule Text & GIF/Video Container (Split 50/50) -->
     <div class="schedule-container">
         <div class="image-grid">
             <div class="image-half">
-                <img id="daily-image" src="" alt="Daily Image" class="schedule-image">
+                <p id="daily-text" class="schedule-text"></p>
             </div>
+            <!-- UPDATE EVERY WEEK -->
             <div class="image-half" id="dynamic-content">
                 <img src="16-22.gif" alt="Image 2" class="schedule-image">
             </div>
@@ -100,8 +101,22 @@
     <script>
         const today = new Date();
         const dayOfWeek = today.getDay();
-        const dailyImage = document.getElementById('daily-image');
-        dailyImage.src = `/cal/${dayOfWeek}.png`;
+        const dailyText = document.getElementById('daily-text');
+
+        //UPDATE EVERY WEEK
+        // Calendar text for each day of the week
+        const calendarTexts = [
+    "Sunday:<br>12:00 RESIDENT LED PRAYER GROUP<br>2:00 GLENDALE CHRISTIAN CHURCH SERVICES", // March 23
+    "Monday:<br>10:00 WORDS IN WORDS<br>2:00 RESIDENT COUNCIL<br>4:00-5:00 PUZZLES IN DAY ROOMS/ACTIVITY ROOM", // March 24
+    "Tuesday:<br>9:30 COFFEE/CURRENT EVENTS<br>10:30 BINGO<br>2:00 AROUND THE WORLD WITH TJ", // March 25
+    "Wednesday:<br>10:00 BIBLE STUDY IN PIANO ROOM<br>11:15 EXERCISE<br>1:30 PRETTY NAILS", // March 26
+    "Thursday:<br>10:00 MUSIC WITH MARK & HIS GUITAR<br>2:30 BINGO<br>4:00-5:00 PUZZLES IN DAY ROOMS/ACTIVITY ROOM", // March 27
+    "Friday:<br>9:30 COFFEE/CURRENT EVENTS<br>10:00 ACTIVITY W/ PAXTON FROM INTEGRITY<br>2:00 MOVIE & POPCORN IN ACTIVITY ROOM", // March 28
+    "Saturday:<br>9:00 GAMES IN ACTIVITY ROOM<br>10:30 BINGO", // March 29
+];
+
+        // Display the text for today
+        dailyText.innerHTML = calendarTexts[dayOfWeek];
 
         //0 corresponds to Sunday
         //1 corresponds to Monday
@@ -112,11 +127,10 @@
         //6 corresponds to Saturday
 
         // check if day is sunday
-        if (dayOfWeek === 0
-        ) { // If it's Sunday
+        if (dayOfWeek === 0) { // If it's Sunday
             document.getElementById("dynamic-content").innerHTML = 
                 `<iframe class="worship-iframe"
-                    src="https://www.youtube.com/embed/i-hgn85hHR0?si=EgxY9BfN-Rw3-sim"
+                    src="https://www.youtube.com/embed/cPySpIm8RW0?si=uKcNsDUMsUX4ledr"
                     frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -126,15 +140,16 @@
             document.getElementById("worship-message").style.display = "none";
         }
 
+        //UPDATE EVERY WEEK
         // Facts for each day of the week
         const historyFacts = [
-    "On this day in history, March 16, 1968, the first Boeing 747 was rolled out, changing air travel forever. You might remember when air travel was a special occasion, and everyone dressed up for a flight!", // Sunday
-    "On this day in history, March 17, 1958, the U.S. launched the Vanguard 1 satellite, one of the first man-made objects in space. Back then, space exploration was just getting started—now look at us with astronauts living on space stations!", // Monday
-    "On this day in history, March 18, 1965, Soviet cosmonaut Alexei Leonov became the first person to walk in space. Imagine the bravery it took to step out into the great unknown!", // Tuesday
-    "On this day in history, March 19, 1953, the Academy Awards were broadcast on television for the first time. Back in those days, you had to gather around the one family TV—no streaming, no pausing, just good old anticipation!", // Wednesday
-    "On this day in history, March 20, 1969, John Lennon and Yoko Ono got married. If you remember the Beatles’ heyday, you know how much of a sensation they were!", // Thursday
-    "On this day in history, March 21, 1963, the infamous Alcatraz prison officially closed. Some folks say no one ever successfully escaped—what do you think?", // Friday
-    "On this day in history, March 22, 1972, the Equal Rights Amendment was passed by the U.S. Senate and sent to the states for ratification. Times sure have changed since then, haven’t they?", // Saturday
+    "On this day in history, March 23, 1839, the word 'OK' was first published in The Boston Morning Post. Who knew such a simple two-letter word would become one of the most widely used expressions in the world?", // Sunday
+    "On this day in history, March 24, 1882, Dr. Robert Koch announced the discovery of the tuberculosis bacterium. Medical science has come a long way since then!", // Monday
+    "On this day in history, March 25, 1965, the Selma to Montgomery march for voting rights, led by Martin Luther King Jr., successfully concluded. A powerful moment in the civil rights movement!", // Tuesday
+    "On this day in history, March 26, 1979, the Egypt-Israel Peace Treaty was signed, marking a major step toward Middle East peace. Diplomacy in action!", // Wednesday
+    "On this day in history, March 27, 1912, Washington D.C.'s famous cherry blossom trees were planted, a gift from Japan. Now, they're a breathtaking sign of spring each year!", // Thursday
+    "On this day in history, March 28, 1979, the Three Mile Island nuclear accident occurred in Pennsylvania, reminding the world of the challenges of nuclear power.", // Friday
+    "On this day in history, March 29, 1974, the Terracotta Army was discovered in China, unearthing thousands of life-sized warriors buried with Emperor Qin Shi Huang. Talk about an archaeological jackpot!", // Saturday
 ];
 
 
@@ -195,12 +210,13 @@
             const simulatedDate = new Date(today);
             simulatedDate.setDate(today.getDate() - today.getDay() + day);
             const simulatedDayOfWeek = simulatedDate.getDay();
-            const dailyImage = document.getElementById('daily-image');
-            dailyImage.src = `/cal/${simulatedDayOfWeek}.png`;
+            const dailyText = document.getElementById('daily-text');
+            dailyText.textContent = calendarTexts[simulatedDayOfWeek];
 
             if (simulatedDayOfWeek === 0) { // If it's Sunday
                 document.getElementById("dynamic-content").innerHTML = 
                     `<iframe class="worship-iframe"
+                    //UPDATE EVERY WEEK
                         src="https://www.youtube.com/embed/i-hgn85hHR0?si=EgxY9BfN-Rw3-sim"
                         frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -219,6 +235,34 @@
 
         // Optionally, you can set an interval to check every hour
         setInterval(() => handleNightModeButton(), 3600000); // Check every hour
+
+        // Function to refresh the page at 00:00 and 12:00
+        function scheduleRefresh() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            let refreshTime;
+
+            if (hours < 12) {
+                refreshTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0, 0);
+            } else {
+                refreshTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+            }
+
+            const timeToRefresh = refreshTime - now;
+
+            setTimeout(() => {
+                location.reload();
+            }, timeToRefresh);
+        }
+
+        // Initial call to schedule the refresh
+        scheduleRefresh();
+
+        // Optionally, you can set an interval to check every hour
+        setInterval(scheduleRefresh, 3600000); // Check every hour
 
         // Simulate 8 PM for testing
         //simulateTime(10)
