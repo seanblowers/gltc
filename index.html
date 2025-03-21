@@ -236,6 +236,34 @@
         // Optionally, you can set an interval to check every hour
         setInterval(() => handleNightModeButton(), 3600000); // Check every hour
 
+        // Function to refresh the page at 00:00 and 12:00
+        function scheduleRefresh() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            let refreshTime;
+
+            if (hours < 12) {
+                refreshTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0, 0);
+            } else {
+                refreshTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+            }
+
+            const timeToRefresh = refreshTime - now;
+
+            setTimeout(() => {
+                location.reload();
+            }, timeToRefresh);
+        }
+
+        // Initial call to schedule the refresh
+        scheduleRefresh();
+
+        // Optionally, you can set an interval to check every hour
+        setInterval(scheduleRefresh, 3600000); // Check every hour
+
         // Simulate 8 PM for testing
         //simulateTime(10)
         // Simulate Sunday for testing
