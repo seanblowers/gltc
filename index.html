@@ -90,6 +90,10 @@
     display: none;
 }
 
+.home-button {
+    display: none; /* Hide the night mode button */
+}
+
     </style>
     <script src="weather.js" defer></script>
 </head>
@@ -102,7 +106,8 @@
         </div>
 <!---UPDATE EVERY WEEK--->
         <div class="reminder-message">😘SEAN AND BARBARA LOVE YOU 😘<br>⛔️THE INFO IS WRONG UNTIL SUNDAY⛔️</div>
-        <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
+        <!-- Removed Night Mode Button -->
+        <!-- <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button> -->
     </div>
 
     <!-- Today in History Section -->
@@ -218,27 +223,33 @@
             }, 1000);
         }
 
-        function toggleNightMode() {
-            const overlay = document.getElementById('night-mode-overlay');
-            if (overlay.style.display === 'none' || overlay.style.display === '') {
-                overlay.style.display = 'block';
-            } else {
-                overlay.style.display = 'none';
-            }
-        }
+        // Removed toggleNightMode function
+        // function toggleNightMode() {
+        //     const overlay = document.getElementById('night-mode-overlay');
+        //     if (overlay.style.display === 'none' || overlay.style.display === '') {
+        //         overlay.style.display = 'block';
+        //     } else {
+        //         overlay.style.display = 'none';
+        //     }
+        // }
 
-        // Function to handle night mode button visibility and functionality
-        function handleNightModeButton(hour = today.getHours()) {
-            const nightModeButton = document.querySelector('.home-button');
+        // Removed handleNightModeButton function
+        // function handleNightModeButton(hour = today.getHours()) {
+        //     const nightModeButton = document.querySelector('.home-button');
+        //     if (hour >= 8 && hour < 19) {
+        //         nightModeButton.style.display = 'none';
+        //         nightModeButton.onclick = null;
+        //     } else {
+        //         nightModeButton.style.display = 'block';
+        //         nightModeButton.onclick = toggleNightMode;
+        //     }
+        // }
 
-            if (hour >= 8 && hour < 19) {
-                nightModeButton.style.display = 'none';
-                nightModeButton.onclick = null;
-            } else {
-                nightModeButton.style.display = 'block';
-                nightModeButton.onclick = toggleNightMode;
-            }
-        }
+        // Initial call to handle night mode button
+        // handleNightModeButton();
+
+        // Optionally, you can set an interval to check every hour
+        // setInterval(() => handleNightModeButton(), 3600000); // Check every hour
 
         // Function to simulate time for testing
         function simulateTime(hour) {
@@ -351,7 +362,8 @@
         <p id="countdown">Closing in: 5 seconds</p>
     </div>
 
-    <div id="night-mode-overlay" class="night-mode-overlay"></div>
+    <!-- Removed Night Mode Overlay -->
+    <!-- <div id="night-mode-overlay" class="night-mode-overlay"></div> -->
 
     <script src="common.js"></script>
 </body>
