@@ -58,7 +58,7 @@ body {
 .countdown-label {
     font-family: 'Courier New', monospace;
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     color: var(--accent);
     text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
     margin-left: 20px;
