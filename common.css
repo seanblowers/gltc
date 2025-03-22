@@ -45,6 +45,25 @@ body {
     text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
 }
 
+/* Countdown Timer Styles */
+.countdown {
+    font-family: 'Courier New', monospace;
+    font-weight: 300;
+    font-size: 2.5rem; /* Slightly bigger */
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
+    margin-left: 20px;
+}
+
+.countdown-label {
+    font-family: 'Courier New', monospace;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
+    margin-left: 20px;
+}
+
 /* Worship Message Styles */
 .worship-message {
     text-align: center;
