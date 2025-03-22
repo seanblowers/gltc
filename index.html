@@ -36,19 +36,6 @@
     font-weight: bold;
 }
 
-/* Night Mode Overlay */
-.night-mode-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    pointer-events: none;
-    z-index: 9999;
-}
-
 /* Countdown Timer Styles */
 .countdown {
     font-family: 'Courier New', monospace;
@@ -102,7 +89,7 @@
         </div>
 <!---UPDATE EVERY WEEK--->
         <div class="reminder-message">😘SEAN AND BARBARA LOVE YOU 😘<br>⛔️THE INFO IS WRONG UNTIL SUNDAY⛔️</div>
-        <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
+
     </div>
 
     <!-- Today in History Section -->
@@ -218,32 +205,7 @@
             }, 1000);
         }
 
-        function toggleNightMode() {
-            const overlay = document.getElementById('night-mode-overlay');
-            if (overlay.style.display === 'none' || overlay.style.display === '') {
-                overlay.style.display = 'block';
-            } else {
-                overlay.style.display = 'none';
-            }
-        }
 
-        // Function to handle night mode button visibility and functionality
-        function handleNightModeButton(hour = today.getHours()) {
-            const nightModeButton = document.querySelector('.home-button');
-
-            if (hour >= 8 && hour < 19) {
-                nightModeButton.style.display = 'none';
-                nightModeButton.onclick = null;
-            } else {
-                nightModeButton.style.display = 'block';
-                nightModeButton.onclick = toggleNightMode;
-            }
-        }
-
-        // Function to simulate time for testing
-        function simulateTime(hour) {
-            handleNightModeButton(hour);
-        }
 
         // Function to simulate day for testing
         function simulateDay(day) {
@@ -269,12 +231,6 @@
                 document.getElementById("worship-message").style.display = "block";
             }
         }
-
-        // Initial call to handle night mode button
-        handleNightModeButton();
-
-        // Optionally, you can set an interval to check every hour
-        setInterval(() => handleNightModeButton(), 3600000); // Check every hour
 
         // Function to refresh the page at 00:00 and 12:00
         function scheduleRefresh() {
@@ -305,7 +261,7 @@
         setInterval(scheduleRefresh, 3600000); // Check every hour
 
         // Simulate 8 PM for testing
-        //simulateTime(10)
+        //simulateTime(0)
         // Simulate Sunday for testing
         //simulateDay(0);
 
@@ -350,8 +306,6 @@
         <p id="message">Not available yet</p>
         <p id="countdown">Closing in: 5 seconds</p>
     </div>
-
-    <div id="night-mode-overlay" class="night-mode-overlay"></div>
 
     <script src="common.js"></script>
 </body>

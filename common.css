@@ -95,6 +95,11 @@ body {
     height: auto;
     text-align: center;
 }
+
+.home-empty {
+    display: none;
+}
+
 .home-button {
     background: var(--card-bg); /* Match the background of other buttons */
     border: 2px solid var(--accent); /* Match the border color of other buttons */
