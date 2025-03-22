@@ -4,8 +4,8 @@
     --text-color: #e0e0e0;
     --accent: #fbff00;
     --card-bg: #1e1a1a;
-    --header-height: 100px;
-    --schedule-height: 50vh;
+    --header-height: 80px; /* Reduced header height */
+    --schedule-height: 45vh; /* Adjusted schedule height */
 }
 
 * {
@@ -32,7 +32,7 @@ body {
     padding: 20px;
     background: var(--card-bg);
     border-radius: 15px;
-    margin: 20px 20px 0px 20px; /* top right bottom left */
+    margin: 10px 10px 0px 10px; /* Reduced margins */
     height: var(--header-height);
 }
 
@@ -40,7 +40,7 @@ body {
 .clock {
     font-family: 'Courier New', monospace;
     font-weight: 300;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     color: var(--accent);
     text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
 }
@@ -49,7 +49,7 @@ body {
 .countdown {
     font-family: 'Courier New', monospace;
     font-weight: 300;
-    font-size: 2.5rem; /* Slightly bigger */
+    font-size: 2.0rem; /* Slightly bigger */
     color: var(--accent);
     text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
     margin-left: 20px;
@@ -58,7 +58,7 @@ body {
 .countdown-label {
     font-family: 'Courier New', monospace;
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     color: var(--accent);
     text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
     margin-left: 20px;
@@ -66,13 +66,7 @@ body {
 
 /* Worship Message Styles */
 .worship-message {
-    text-align: center;
-    font-size: 1.5rem;
-    color: var(--accent);
-    padding: 15px;
-    margin-bottom: 10px;
-    background: var(--card-bg);
-    border-radius: 10px;
+    display: none;
 }
 
 /* Reminder Message Styles */
@@ -130,8 +124,8 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
     gap: 15px; /* Spacing between buttons */
-    padding: 0px 20px 20px 20px; /* Padding around the grid */
-    margin: 20px 20px 0px 20px; /* Adjust margin to match the spacing below the buttons */
+    padding: 10px; /* Reduced padding */
+    margin: 10px; /* Reduced margin */
 }
 
 /* Button Hover Effects */
@@ -146,11 +140,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 10px; /* Reduced margin */
     background: var(--card-bg);
     border-radius: 15px;
     overflow: hidden;
-    height: calc(100vh - var(--header-height) - 80px); /* Adjust height to fit within viewport */
+    height: calc(100vh - var(--header-height) - 40px); /* Adjusted height */
 }
 
 /* 50/50 Image & Video Layout */
@@ -236,7 +230,7 @@ body {
     background: var(--card-bg);
     color: var(--accent); /* Use accent color for text */
     padding: 15px;
-    margin: 20px;
+    margin: 10px; /* Reduced margin */
     border-radius: 10px;
     text-align: center;
     font-size: 1.2rem;

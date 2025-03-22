@@ -68,6 +68,28 @@
     margin-left: 20px;
 }
 
+.header {
+    margin: 10px 10px 0px 10px; /* Reduced margins */
+}
+
+.main-grid {
+    padding: 10px; /* Reduced padding */
+    margin: 10px; /* Reduced margin */
+}
+
+.schedule-container {
+    margin: 10px; /* Reduced margin */
+}
+
+.history-section {
+    margin: 10px; /* Reduced margin */
+}
+
+/* Removed Worship Message Styles */
+.worship-message {
+    display: none;
+}
+
     </style>
     <script src="weather.js" defer></script>
 </head>
@@ -79,7 +101,7 @@
             <div class="countdown" id="countdown-timer"></div>
         </div>
 <!---UPDATE EVERY WEEK--->
-        <div class="reminder-message">😘SEAN AND BARBARA LOVE YOU 😘<br>⛔️THE CALENDAR AND "TODAY IN HISTORY" <br>SECTIONS ARE WRONG UNTIL SUNDAY⛔️</div>
+        <div class="reminder-message">😘SEAN AND BARBARA LOVE YOU 😘<br>⛔️THE INFO IS WRONG UNTIL SUNDAY⛔️</div>
         <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
     </div>
 
@@ -101,11 +123,6 @@
         <button class="app-button" onclick="location.href='blockblast.html'">
             🧱 Block Blast
         </button>
-    </div>
-
-    <!-- Worship Message -->
-    <div id="worship-message" class="worship-message">
-        Modern worship will appear here on Sundays.
     </div>
 
     <!-- Schedule Text & GIF/Video Container (Split 50/50) -->
@@ -240,7 +257,7 @@
                 document.getElementById("dynamic-content").innerHTML = 
                     `<iframe class="worship-iframe"
                     // UPDATE EVERY WEEK
-                        src="https://www.youtube.com/embed/i-hgn85hHR0?si=EgxY9BfN-Rw3-sim"
+                        src="https://www.youtube.com/embed/cPySpIm8RW0?si=8Ec9Fb58KS3zypWD"
                         frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
