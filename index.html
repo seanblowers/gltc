@@ -56,7 +56,9 @@
     <div class="header">
         <div class="clock"></div>
 <!---UPDATE EVERY WEEK--->
-        <div class="reminder-message">😘SEAN AND BARBARA LOVE YOU 😘</div>
+        <div class="reminder-message">Hi, George Blowers!
+            you are at James River Nursing Home<br>
+            🌼 SEAN AND BARBARA ARE SENDING <br>YOU BIG HUGS AND SUNNY SMILES 🌼</div>
         <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
     </div>
 
@@ -77,6 +79,9 @@
         </button>
         <button class="app-button" onclick="location.href='blockblast.html'">
             🧱 Block Blast
+        </button>
+        <button class="app-long" onclick="location.href='blockblast.html'">
+            ⏰ View School End Countdown
         </button>
     </div>
 
@@ -103,16 +108,16 @@
         const dayOfWeek = today.getDay();
         const dailyText = document.getElementById('daily-text');
 
-        //UPDATE EVERY WEEK
-        // Calendar text for each day of the week
-        const calendarTexts = [
-    "Sunday:<br>12:00 RESIDENT LED PRAYER GROUP<br>2:00 GLENDALE CHRISTIAN CHURCH SERVICES", // March 23
-    "Monday:<br>10:00 WORDS IN WORDS<br>2:00 RESIDENT COUNCIL<br>4:00-5:00 PUZZLES IN DAY ROOMS/ACTIVITY ROOM", // March 24
-    "Tuesday:<br>9:30 COFFEE/CURRENT EVENTS<br>10:30 BINGO<br>2:00 AROUND THE WORLD WITH TJ", // March 25
-    "Wednesday:<br>10:00 BIBLE STUDY IN PIANO ROOM<br>11:15 EXERCISE<br>1:30 PRETTY NAILS", // March 26
-    "Thursday:<br>10:00 MUSIC WITH MARK & HIS GUITAR<br>2:30 BINGO<br>4:00-5:00 PUZZLES IN DAY ROOMS/ACTIVITY ROOM", // March 27
-    "Friday:<br>9:30 COFFEE/CURRENT EVENTS<br>10:00 ACTIVITY W/ PAXTON FROM INTEGRITY<br>2:00 MOVIE & POPCORN IN ACTIVITY ROOM", // March 28
-    "Saturday:<br>9:00 GAMES IN ACTIVITY ROOM<br>10:30 BINGO", // March 29
+// UPDATE EVERY WEEK
+// Calendar text for each day of the week
+const calendarTexts = [
+    "Sunday:<br>12:00 RESIDENT LED PRAYER GROUP<br>2:00 LED CHURCH SERVICES", // March 30
+    "Monday:<br>10:00 MEN'S GROUP<br>2:30 MARCH B-DAY PARTY IN DINING ROOM<br>4:00-5:00 PUZZLES IN DAY ROOMS/ACTIVITY ROOM", // March 31
+    "Tuesday:<br>—", // Next week begins
+    "Wednesday:<br>—",
+    "Thursday:<br>—",
+    "Friday:<br>—",
+    "Saturday:<br>—",
 ];
 
         // Display the text for today
@@ -130,7 +135,7 @@
         if (dayOfWeek === 0) { // If it's Sunday
             document.getElementById("dynamic-content").innerHTML = 
                 `<iframe class="worship-iframe"
-                    src="https://www.youtube.com/embed/cPySpIm8RW0?si=uKcNsDUMsUX4ledr"
+                    src="https://www.youtube.com/embed/c6gHKXLFQ9g?si=zdXQzo3N6WfGK15w"
                     frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -140,16 +145,16 @@
             document.getElementById("worship-message").style.display = "none";
         }
 
-        //UPDATE EVERY WEEK
-        // Facts for each day of the week
-        const historyFacts = [
-    "On this day in history, March 23, 1839, the word 'OK' was first published in The Boston Morning Post. Who knew such a simple two-letter word would become one of the most widely used expressions in the world?", // Sunday
-    "On this day in history, March 24, 1882, Dr. Robert Koch announced the discovery of the tuberculosis bacterium. Medical science has come a long way since then!", // Monday
-    "On this day in history, March 25, 1965, the Selma to Montgomery march for voting rights, led by Martin Luther King Jr., successfully concluded. A powerful moment in the civil rights movement!", // Tuesday
-    "On this day in history, March 26, 1979, the Egypt-Israel Peace Treaty was signed, marking a major step toward Middle East peace. Diplomacy in action!", // Wednesday
-    "On this day in history, March 27, 1912, Washington D.C.'s famous cherry blossom trees were planted, a gift from Japan. Now, they're a breathtaking sign of spring each year!", // Thursday
-    "On this day in history, March 28, 1979, the Three Mile Island nuclear accident occurred in Pennsylvania, reminding the world of the challenges of nuclear power.", // Friday
-    "On this day in history, March 29, 1974, the Terracotta Army was discovered in China, unearthing thousands of life-sized warriors buried with Emperor Qin Shi Huang. Talk about an archaeological jackpot!", // Saturday
+// UPDATE EVERY WEEK
+// Facts for each day of the week
+const historyFacts = [
+    "On this day in history, March 30, 1981, President Ronald Reagan survived an assassination attempt in Washington, D.C. His calm demeanor even after being shot stunned the world!", // Sunday
+    "On this day in history, March 31, 1889, the Eiffel Tower opened to the public during the Paris Exposition. People thought it was ugly at first, but now it’s basically Paris’s prom photo backdrop!", // Monday
+    "On this day in history, April 1, 1976, Apple Inc. was founded by Steve Jobs, Steve Wozniak, and Ronald Wayne. And no, it wasn't an April Fool’s prank — though Ronald Wayne probably wishes it was... he sold his shares for $800!", // Tuesday
+    "On this day in history, April 2, 2005, Pope John Paul II passed away, ending a 26-year papacy that left a lasting legacy on the world and the Catholic Church.", // Wednesday
+    "On this day in history, April 3, 1973, the first-ever handheld mobile phone call was made by Martin Cooper. He called a rival company... talk about petty *and* historic!", // Thursday
+    "On this day in history, April 4, 1968, Dr. Martin Luther King Jr. was tragically assassinated in Memphis, Tennessee. His legacy continues to inspire movements for justice and equality.", // Friday
+    "On this day in history, April 5, 1994, Nirvana frontman Kurt Cobain was found dead, marking a tragic end to one of grunge rock’s most influential voices.", // Saturday
 ];
 
 
@@ -211,13 +216,13 @@
             simulatedDate.setDate(today.getDate() - today.getDay() + day);
             const simulatedDayOfWeek = simulatedDate.getDay();
             const dailyText = document.getElementById('daily-text');
-            dailyText.textContent = calendarTexts[simulatedDayOfWeek];
+            dailyText.innerHTML = calendarTexts[simulatedDayOfWeek];
 
             if (simulatedDayOfWeek === 0) { // If it's Sunday
                 document.getElementById("dynamic-content").innerHTML = 
                     `<iframe class="worship-iframe"
-                    //UPDATE EVERY WEEK
-                        src="https://www.youtube.com/embed/i-hgn85hHR0?si=EgxY9BfN-Rw3-sim"
+                    // UPDATE EVERY WEEK
+                        src="https://www.youtube.com/embed/c6gHKXLFQ9g"
                         frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
@@ -267,7 +272,7 @@
         // Simulate 8 PM for testing
         //simulateTime(10)
         // Simulate Sunday for testing
-        //simulateDay(0);
+        simulateDay(0);
     </script>
 
 <script>

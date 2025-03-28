@@ -82,6 +82,27 @@ body {
     height: auto;
     text-align: center;
 }
+
+.app-long {
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    color: var(--text-color);
+    padding: 20px 20px; /* Increased padding to make buttons taller */
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s, background 0.2s;
+    width: 100%; /* Make buttons take up full width of their grid cell */
+    height: auto;
+    text-align: center;
+    grid-column: span 2; /* Make the button span two columns */
+}
+
+
 .home-button {
     background: var(--card-bg); /* Match the background of other buttons */
     border: 2px solid var(--accent); /* Match the border color of other buttons */
@@ -117,8 +138,14 @@ body {
 
 /* Button Hover Effects */
 .app-button:hover {
-    transform: scale(1.05);
-    background: rgba(255, 123, 0, 0.1);
+    scale: 1.05;
+    background: rgba(255, 0, 238, 0.1);
+}
+
+/* Button Hover Effects */
+.app-long:hover {
+    scale: 1.05;
+    background: rgba(255, 0, 238, 0.1);
 }
 
 /* Schedule Container */
