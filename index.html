@@ -56,11 +56,11 @@
     <div class="header">
         <div class="clock"></div>
 <!---UPDATE EVERY WEEK--->
-        <div class="reminder-message">Hi, George Blowers!
-            you are at James River Nursing Home<br>
-            🌼 SEAN AND BARBARA ARE SENDING <br>YOU BIG HUGS AND SUNNY SMILES 🌼</div>
-        <button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
-    </div>
+<div class="reminder-message">Hi, George Blowers!
+    you are at James River Nursing Home<br>
+    🐣 SEAN AND BARBARA ARE SENDING <br>YOU BIG HUGS AND EASTER SMILES 🐣</div>
+<button class="home-button" onclick="toggleNightMode()">🌙 Night Mode</button>
+</div>
 
     <!-- Today in History Section -->
     <div id="history-section" class="history-section">
@@ -111,15 +111,14 @@
 // UPDATE EVERY WEEK
 // Calendar text for each day of the week
 const calendarTexts = [
-    "Sunday:<br>12:00 RESIDENT LED PRAYER GROUP<br>2:00 LED CHURCH SERVICES", // March 30
-    "Monday:<br>10:00 MEN'S GROUP<br>2:30 MARCH B-DAY PARTY IN DINING ROOM<br>4:00-5:00 PUZZLES IN DAY ROOMS/ACTIVITY ROOM", // March 31
-    "Tuesday:<br>8:00–10:00 PRETTY NAILS<br>10:00 SENIOR JOKES & RIDDLES<br>2:30 BINGO", // April 1
-    "Wednesday:<br>10:00 BIBLE STUDY IN KINGS CHAPEL<br>11:15 EXERCISE<br>INDEPENDENT ACTIVITY FOR AFTERNOON", // April 2
-    "Thursday:<br>10:00 MUSIC W/MARK & HIS GUITAR<br>2:30 BINGO<br>4:00-5:00 PUZZLES IN DAY ROOMS/ACTIVITY ROOM", // April 3
-    "Friday:<br>9:30 COFFEE/CONVERSATION<br>10:30 PIANO MUSIC W/ROBIN IN DINING ROOM<br>2:00 MOVIE & POPCORN", // April 4
-    "Saturday:<br>9:00 GAMES IN ACTIVITY ROOM<br>10:30 BINGO", // April 5
+    "Sunday:<br>12:00 RESIDENT LED PRAYER GROUP<br>2:00 BATTLEFIELD APOSTOLIC CHURCH SERVICES", // April 6
+    "Monday:<br>10:00 BUNNY CRAFT<br>2:00 JACK POT<br>4:00–5:00 PUZZLES IN DAY ROOMS/ACTIVITY ROOM", // April 7
+    "Tuesday:<br>9:30 COFFEE/CONVERSATION<br>10:00 TUESDAY TRIVIA<br>2:30 BINGO", // April 8
+    "Wednesday:<br>10:00 BIBLE STUDY IN ACTIVITY ROOM<br>11:15 EXERCISE<br>2:00 FRESH AIR & POPSICLES", // April 9
+    "Thursday:<br>10:00 BIBLE STUDY IN PIANO ROOM<br>2:30 BINGO<br>4:00–5:00 PUZZLES IN DAY ROOMS/ACTIVITY ROOM", // April 10
+    "Friday:<br>9:30 COFFEE/CONVERSATION<br>10:00 EASTER COLORING ACTIVITY<br>2:00 MOVIE & POPCORN", // April 11
+    "Saturday:<br>9:00 GAMES IN ACTIVITY ROOM<br>10:30 BINGO", // April 12
 ];
-
         // Display the text for today
         dailyText.innerHTML = calendarTexts[dayOfWeek];
 
@@ -135,7 +134,7 @@ const calendarTexts = [
         if (dayOfWeek === 0) { // If it's Sunday
             document.getElementById("dynamic-content").innerHTML = 
                 `<iframe class="worship-iframe"
-                    src="https://www.youtube.com/embed/c6gHKXLFQ9g?si=zdXQzo3N6WfGK15w"
+                    src="https://www.youtube.com/embed/nQbWkAdUiwQ"
                     frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -148,13 +147,13 @@ const calendarTexts = [
 // UPDATE EVERY WEEK
 // Facts for each day of the week
 const historyFacts = [
-    "On this day in history, March 30, 1981, President Ronald Reagan survived an assassination attempt in Washington, D.C. His calm demeanor even after being shot stunned the world!", // Sunday
-    "On this day in history, March 31, 1889, the Eiffel Tower opened to the public during the Paris Exposition. People thought it was ugly at first, but now it’s basically Paris’s prom photo backdrop!", // Monday
-    "On this day in history, April 1, 1976, Apple Inc. was founded by Steve Jobs, Steve Wozniak, and Ronald Wayne. And no, it wasn't an April Fool’s prank — though Ronald Wayne probably wishes it was... he sold his shares for $800!", // Tuesday
-    "On this day in history, April 2, 2005, Pope John Paul II passed away, ending a 26-year papacy that left a lasting legacy on the world and the Catholic Church.", // Wednesday
-    "On this day in history, April 3, 1973, the first-ever handheld mobile phone call was made by Martin Cooper. He called a rival company... talk about petty *and* historic!", // Thursday
-    "On this day in history, April 4, 1968, Dr. Martin Luther King Jr. was tragically assassinated in Memphis, Tennessee. His legacy continues to inspire movements for justice and equality.", // Friday
-    "On this day in history, April 5, 1994, Nirvana frontman Kurt Cobain was found dead, marking a tragic end to one of grunge rock’s most influential voices.", // Saturday
+    "On this day in history, April 6, 1917, the U.S. entered World War I, joining the Allies and changing the course of global conflict forever.", // Sunday
+    "On this day in history, April 7, 2001, NASA launched the Mars Odyssey spacecraft to map the Martian surface and hunt for water. Spoiler: it found ice!", // Monday
+    "On this day in history, April 8, 1974, Hank Aaron hit his 715th home run, breaking Babe Ruth’s long-standing record and making baseball history!", // Tuesday
+    "On this day in history, April 9, 1865, General Robert E. Lee surrendered to Ulysses S. Grant at Appomattox Court House, ending the U.S. Civil War.", // Wednesday
+    "On this day in history, April 10, 1912, the RMS Titanic set sail from Southampton. Spoiler alert: it was not unsinkable, but it sure was legendary.", // Thursday
+    "On this day in history, April 11, 1970, Apollo 13 launched. Everything went wrong — but the crew made it back, giving us “Houston, we have a problem.”", // Friday
+    "On this day in history, April 12, 1961, Yuri Gagarin became the first human in space. He orbited Earth and made space history — no big deal!", // Saturday
 ];
 
 
@@ -222,7 +221,7 @@ const historyFacts = [
                 document.getElementById("dynamic-content").innerHTML = 
                     `<iframe class="worship-iframe"
                     // UPDATE EVERY WEEK
-                        src="https://www.youtube.com/embed/c6gHKXLFQ9g"
+                        src="https://www.youtube.com/embed/nQbWkAdUiwQ"
                         frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
