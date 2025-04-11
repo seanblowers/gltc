@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mother's Day Sessions | Sean Blowers Photography</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f7f3;
+      color: #1d1f1d;
+    }
+    .hero {
+      background-image: url('your-background-image.jpg'); /* Replace with your image URL */
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    .hero p {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+    .cta {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .cta h2 {
+      font-size: 2rem;
+      color: #1d1f1d;
+    }
+    .cta p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+    }
+    .cta a {
+      background-color: #6bd441;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .cta a:hover {
+      background-color: #59ba38;
+    }
+    .offer-card {
+      background-color: white;
+      padding: 2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .offer-card h3 {
+      color: #132014;
+      margin-bottom: 1rem;
+    }
+    .offer-card ul {
+      list-style: none;
+      padding: 0;
+      color: #444;
+    }
+    .offer-card ul li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    .review {
+      text-align: center;
+      font-style: italic;
+      font-size: 1rem;
+      color: #333;
+      margin-top: 1rem;
+    }
+    .form-section {
+      background-color: #0f1a0f;
+      padding: 3rem 1rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .form-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 500px;
+    }
+    input, textarea {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .submit-btn {
+      background-color: #6bd441;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #59ba38;
+    }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      background-color: #f3f7f3;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>Mother's Day Sessions</h1>
+    <p>A moment with mom. A memory for a lifetime.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Capture the Love</h2>
+    <p>Celebrate Mother's Day with a full photography experience in Springfield, MO. Designed for moms, grandmas, or mommy-and-me duos — this session goes beyond the basics to give you timeless, heart-filled portraits you’ll cherish forever.</p>
+    <a href="#booking">Book Your Session</a>
+  </section>
+
+  <div class="offer-card">
+    <h3>What You’ll Get</h3>
+    <ul>
+      <li>📸 Full Custom Session (no time limits!)</li>
+      <li>🎁 20+ Edited Images</li>
+      <li>💌 Online Gallery Delivery in 48 Hours</li>
+      <li>💸 $200 Flat Rate</li>
+    </ul>
+    <p class="review">“Sean captured our laughter and love in every frame. Best gift ever.”</p>
+  </div>
+
+  <section class="form-section" id="booking">
+    <h3>Reserve Your Spot</h3>
+    <p id="countdown" style="font-size: 1.2rem; margin-bottom: 1rem;"></p>
+    <form name="mothers-day-booking" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="mothers-day-booking">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <textarea name="message" placeholder="Tell us about your ideal session..." rows="4"></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </section>
+
+  <script>
+    const totalSpots = 35; // Total available spots
+    const formSection = document.querySelector('.form-section');
+    const countdownElement = document.getElementById('countdown');
+
+    async function fetchFormSubmissions() {
+      try {
+        const response = await fetch('/.netlify/functions/get-submissions');
+        if (!response.ok) {
+          throw new Error('Failed to fetch submissions');
+        }
+        const data = await response.json();
+        const submissions = data.count || 0; // Number of submissions
+        const remainingSpots = totalSpots - submissions;
+
+        if (remainingSpots <= 0) {
+          formSection.style.display = 'none'; // Hide form if no spots left
+          countdownElement.textContent = 'All spots are booked!';
+        } else {
+          countdownElement.textContent = `${remainingSpots} spots left!`;
+          const countdownDuration = remainingSpots * 10 * 60; // 10 minutes per spot
+          startCountdown(countdownDuration);
+        }
+      } catch (error) {
+        console.error('Error fetching form submissions:', error);
+        countdownElement.textContent = 'Unable to load availability. Please try again later.';
+      }
+    }
+
+    function startCountdown(duration) {
+      let timer = duration, minutes, seconds;
+      const interval = setInterval(() => {
+        minutes = Math.floor(timer / 60);
+        seconds = timer % 60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        countdownElement.textContent = `${minutes}:${seconds} remaining to book!`;
+
+        if (--timer < 0) {
+          clearInterval(interval);
+          countdownElement.textContent = 'Time is up!';
+          formSection.style.display = 'none'; // Hide form when countdown ends
+        }
+      }, 1000);
+    }
+
+    fetchFormSubmissions();
+  </script>
+
+  <footer>
+    © 2025 Sean Blowers Photography | Springfield, MO | hi@seanblowers.com
+  </footer>
+</body>
+</html>
